@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Niv Matityahu — AI Engineer</title>
-  <meta name="description" content="AI Engineer building LLM agent systems that ship — and behave once they're live. Hybrid RAG, orchestration, guardrails, serverless AWS. Available for freelance and consulting." />
+  <meta name="description" content="AI Engineer who builds LLM agents that don't make things up. The model plans; deterministic code decides every number; a grounding guard enforces it. Production agents, live demos, open source. Available for freelance and consulting." />
 
   <!-- Open Graph / social share (used when the link is pasted into LinkedIn, Slack, etc.) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Niv Matityahu — AI Engineer" />
-  <meta property="og:description" content="I build LLM agents that ship — and behave once they're live. Agent systems, hybrid RAG, reliability & guardrails." />
+  <meta property="og:description" content="I build AI agents that don't make things up — the LLM plans, the code decides every number, and a grounding guard enforces it." />
   <!-- TODO: add a 1200x630 preview image named og-image.png to this folder and set the URL below once deployed -->
   <!-- <meta property="og:image" content="https://your-domain.com/og-image.png" /> -->
   <meta name="theme-color" content="#111010" />
@@ -37,8 +37,8 @@
 
     <nav class="nav__links" aria-label="Primary">
       <a href="#work">Work</a>
-      <a href="#build">What I build</a>
-      <a href="#about">About</a>
+      <a href="#approach">Approach</a>
+      <a href="#foundations">Foundations</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -55,14 +55,15 @@
       <div class="hero__inner">
         <p class="eyebrow reveal" data-reveal>AI Engineer · Agent systems · Tel Aviv</p>
         <h1 class="hero__title reveal" data-reveal>
-          I build LLM agents that ship —<br />
-          <span class="accent-text">and behave once they're live.</span>
+          I build AI agents<br />
+          <span class="accent-text">that don't make things up.</span>
         </h1>
         <p class="hero__lede reveal" data-reveal>
-          From a client's first vague idea to a production agent on serverless AWS: discovery,
-          architecture, retrieval, orchestration, and the guardrails that keep a language model
-          from inventing a price. My rule of thumb —
-          <span class="inline-code">the LLM decides <em>what</em>, the code decides <em>how</em>.</span>
+          From a national retailer's WhatsApp storefront to an airport-investment analyst to a
+          personal-finance advisor, I design LLM systems you can trust in production. One rule runs
+          through all of it —
+          <span class="inline-code">the LLM decides <em>what</em>, the code decides <em>how</em></span> —
+          and a grounding guard makes it enforceable, so the model never invents a price or a number.
         </p>
 
         <div class="hero__actions reveal" data-reveal>
@@ -76,8 +77,8 @@
             <dd><span class="counter" data-count="2">0</span></dd>
           </div>
           <div class="telemetry__item">
-            <dt>Domains shipped</dt>
-            <dd>Retail · Travel · Finance</dd>
+            <dt>Projects open-sourced</dt>
+            <dd><span class="counter" data-count="9">0</span></dd>
           </div>
           <div class="telemetry__item">
             <dt>CS degree GPA</dt>
@@ -87,56 +88,42 @@
       </div>
     </section>
 
-    <!-- ───────────────────────── What I build ───────────────────────── -->
-    <section class="section" id="build">
+    <!-- ───────────────────────── Approach / common thread ───────────────────────── -->
+    <section class="section section--approach" id="approach">
       <div class="section__head">
-        <p class="eyebrow" data-reveal>§ What I build</p>
-        <h2 class="section__title" data-reveal>Three things I get asked for most.</h2>
-        <p class="section__sub" data-reveal>
-          I own the whole path — not just a model in a notebook, but a system a business can
-          depend on. Here's where I'm most useful on a project.
+        <p class="eyebrow" data-reveal>§ The common thread</p>
+        <p class="approach__lead" data-reveal>
+          An LLM is great at deciding <span class="accent-text">what</span> to do —
+          and the wrong tool for computing a number. So I split the two, and make the split enforceable.
+        </p>
+        <p class="approach__body" data-reveal>
+          The same architecture shows up in everything below: the model plans, picks tools, and
+          explains itself in plain language — while deterministic code computes every price, score,
+          and figure. A grounding guard sits in the middle: if the model ever states a number it
+          didn't get from a tool, the answer is refused and the tool is called. That's the difference
+          between an impressive demo and something a business can actually depend on.
         </p>
       </div>
 
-      <div class="cards">
-        <article class="card" data-reveal>
-          <p class="card__index">01</p>
-          <h3 class="card__title">Agent systems, end to end</h3>
-          <p class="card__body">
-            Requirements discovery → architecture → a POC that proves feasibility → a deployed
-            agent doing real work. Tool-calling and reliable state management across multi-turn
-            conversations, so the thing actually holds up past the demo.
-          </p>
-          <ul class="tags">
-            <li>LLM orchestration</li><li>Tool-calling</li><li>Multi-turn state</li><li>POC → prod</li>
-          </ul>
-        </article>
-
-        <article class="card" data-reveal>
-          <p class="card__index">02</p>
-          <h3 class="card__title">Retrieval that's actually relevant</h3>
-          <p class="card__body">
-            Hybrid RAG when a single vector search isn't enough: taxonomy expansion, SQL
-            pre-filtering, weighted fusion of BM25 and embeddings, then re-ranking — tuned so
-            the model is handed the right context, not just <em>some</em> context.
-          </p>
-          <ul class="tags">
-            <li>Hybrid RAG</li><li>BM25 + embeddings</li><li>Re-ranking</li><li>SQL pre-filter</li>
-          </ul>
-        </article>
-
-        <article class="card" data-reveal>
-          <p class="card__index">03</p>
-          <h3 class="card__title">Reliability &amp; guardrails</h3>
-          <p class="card__body">
-            The part that keeps you out of the headlines: multi-stage output guardrails that
-            ground every fact and price, strip hallucinated names, and get measured by an
-            evaluation framework — so quality is a number, not a vibe.
-          </p>
-          <ul class="tags">
-            <li>Output guardrails</li><li>Grounding</li><li>Eval frameworks</li><li>Monitoring</li>
-          </ul>
-        </article>
+      <div class="approach__pillars" data-reveal>
+        <div class="pillar">
+          <p class="pillar__k">Plans</p>
+          <h3 class="pillar__t">The LLM decides <em>what</em></h3>
+          <p class="pillar__d">Understands the request, chooses the right tools, handles multi-turn
+            conversation, and explains the answer in human language.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar__k">Computes</p>
+          <h3 class="pillar__t">The code decides <em>how</em></h3>
+          <p class="pillar__d">Prices, scores, and retrieval ranking are computed by deterministic
+            code — testable, repeatable, and auditable. No vibes.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar__k">Enforces</p>
+          <h3 class="pillar__t">The guard makes it true</h3>
+          <p class="pillar__d">A grounding layer refuses any fact the model didn't source from a
+            tool, and an eval framework turns "is it accurate?" into a number.</p>
+        </div>
       </div>
     </section>
 
@@ -144,12 +131,14 @@
     <section class="section section--work" id="work">
       <div class="section__head">
         <p class="eyebrow" data-reveal>§ Selected work</p>
-        <h2 class="section__title" data-reveal>Three systems, from production to research.</h2>
+        <h2 class="section__title" data-reveal>Production systems, a live agent, and a shipped product.</h2>
       </div>
 
-      <!-- CASE 01 -->
-      <!-- TODO (client naming): replace "a leading Israeli retailer" with the real name ONLY after
-           you've confirmed you're cleared by Moveo / the client to publish it. Same for CASE 02. -->
+      <!-- CASE 01 — Moveo retail -->
+      <!-- TODO (client naming): replace "a national Israeli retailer" with the real name ONLY after
+           you've confirmed you're cleared by Moveo / the client to publish it. Same for CASE 02.
+           TODO (metrics): add real numbers if you're cleared — conversations/day, deflection or
+           resolution rate, CSAT, conversion lift, latency. They'd make these cases much stronger. -->
       <article class="case" data-reveal>
         <aside class="case__meta">
           <span class="case__num">01</span>
@@ -157,29 +146,30 @@
           <span class="case__role">Conversational commerce · Moveo AI</span>
         </aside>
         <div class="case__body">
-          <h3 class="case__title">A WhatsApp sales &amp; service agent for a leading Israeli retailer</h3>
+          <h3 class="case__title">A WhatsApp sales &amp; service agent for a national Israeli retailer</h3>
           <p class="case__context">
             The retailer wanted customers to browse, get recommendations, and actually buy — inside
-            WhatsApp, the channel they already live in. The hard constraint: an assistant that can
-            quote real prices and stock, and <strong>never invents either</strong>.
+            WhatsApp, the channel they already live in. The hard constraint, and the whole reason this
+            is difficult: an assistant that quotes real prices and stock and <strong>never invents
+            either</strong>, running live for real customers.
           </p>
 
           <div class="case__detail">
             <div class="case__block">
-              <p class="case__label">The approach</p>
+              <p class="case__label">What I built</p>
               <ul class="case__list">
-                <li><strong>Hybrid retrieval for product discovery</strong> — taxonomy expansion and SQL pre-filtering, then weighted fusion of BM25 + embeddings, then re-ranking.</li>
-                <li><strong>An orchestration layer</strong> with tool-calling and reliable state management across multi-turn conversations.</li>
-                <li><strong>Multi-stage output guardrails</strong> grounding every fact &amp; price and stripping hallucinated product names — <em>LLM decides what, code decides how</em>.</li>
-                <li><strong>Live data integration</strong> with product, inventory &amp; pricing sources, with automated syncs keeping the catalog current.</li>
+                <li><strong>Hybrid retrieval for product discovery</strong> — taxonomy expansion and SQL pre-filtering, then weighted fusion of BM25 + embeddings, then re-ranking, so the model is handed the <em>right</em> products, not just similar ones.</li>
+                <li><strong>An orchestration layer</strong> with tool-calling and reliable state across multi-turn conversations — it remembers context without losing the thread.</li>
+                <li><strong>Multi-stage output guardrails</strong> that ground every fact &amp; price and strip hallucinated product names.</li>
+                <li><strong>Live data integration</strong> with product, inventory &amp; pricing feeds, with automated syncs keeping the catalog current.</li>
               </ul>
             </div>
             <div class="case__block">
-              <p class="case__label">The outcome</p>
+              <p class="case__label">Outcome</p>
               <ul class="case__list">
                 <li>Shipped and <strong>live to real customers</strong> over WhatsApp.</li>
-                <li>Responses stay <strong>grounded and hallucination-free</strong> on prices and stock.</li>
-                <li>Catalog stays current automatically — no manual refresh.</li>
+                <li>Prices and stock stay <strong>grounded — no hallucinations.</strong></li>
+                <li>Deployed on serverless AWS with push-to-main CI/CD.</li>
               </ul>
             </div>
           </div>
@@ -190,7 +180,7 @@
         </div>
       </article>
 
-      <!-- CASE 02 -->
+      <!-- CASE 02 — Moveo airline (compact) -->
       <article class="case" data-reveal>
         <aside class="case__meta">
           <span class="case__num">02</span>
@@ -200,73 +190,197 @@
         <div class="case__body">
           <h3 class="case__title">A customer-service bot for a national airline</h3>
           <p class="case__context">
-            High-volume, high-stakes support where a confidently wrong answer has real consequences
-            for travelers. I contributed to the retrieval, orchestration, and guardrail layers that
-            keep answers trustworthy at scale.
+            High-volume, high-stakes support where a confidently wrong answer has real consequences for
+            travelers. I contributed to the retrieval, orchestration, and guardrail layers that keep
+            answers grounded and on-policy at scale, deployed and monitored on serverless AWS.
           </p>
-
-          <div class="case__detail">
-            <div class="case__block">
-              <p class="case__label">The approach</p>
-              <ul class="case__list">
-                <li>Retrieval and orchestration tuned for accuracy on sensitive, policy-bound queries.</li>
-                <li>Guardrails that keep the assistant grounded instead of improvising.</li>
-                <li>Deployed and monitored on serverless AWS with push-to-main CI/CD.</li>
-              </ul>
-            </div>
-            <div class="case__block">
-              <p class="case__label">The outcome</p>
-              <ul class="case__list">
-                <li>In production for a <strong>national carrier</strong>.</li>
-                <li>Handles real support traffic with grounded, on-policy answers.</li>
-              </ul>
-            </div>
-          </div>
-
           <ul class="tags tags--case">
             <li>Python</li><li>RAG</li><li>LLM orchestration</li><li>Guardrails</li><li>Serverless AWS</li>
           </ul>
         </div>
       </article>
 
-      <!-- CASE 03 -->
+      <!-- CASE 03 — Airport Investment Agent -->
       <article class="case" data-reveal>
         <aside class="case__meta">
           <span class="case__num">03</span>
-          <span class="case__tag">◆ Research · Side project</span>
-          <span class="case__role">B.Sc. final project · Azrieli College</span>
+          <span class="case__tag case__tag--demo">▶ Live demo · open source</span>
+          <span class="case__role">AI agent · solo build</span>
         </aside>
         <div class="case__body">
-          <h3 class="case__title">An AI tutor that grades linear-algebra exercises, step by step</h3>
+          <h3 class="case__title">An AI analyst that finds the US airports worth expanding</h3>
           <p class="case__context">
-            My degree's final project, and a question I wanted answered: could a smaller, open model
-            actually <em>check mathematical reasoning</em> — giving step-by-step corrections, not just
-            a final mark?
+            A conversational agent that ranks US airports for terminal-expansion investment — by chat
+            or voice. The insight most takes miss: a fund only profits where capacity is
+            <em>choked</em>, so size and growth alone shouldn't win. I encoded that thesis into a
+            <strong>deterministic Expansion Opportunity Score</strong>, not the prompt.
           </p>
 
           <div class="case__detail">
             <div class="case__block">
-              <p class="case__label">The approach</p>
+              <p class="case__label">How it works</p>
               <ul class="case__list">
-                <li>Fine-tuned <strong>WizardMath with LoRA</strong> to grade exercises and produce step-by-step corrections.</li>
-                <li>Built the data and training loop to teach the model <em>how to evaluate</em> a solution, not just solve one.</li>
+                <li><strong>Agent loop</strong> (Gemini / Claude) with 7 typed tools — it plans and narrates; <strong>code computes every number.</strong></li>
+                <li><strong>Choke-gated score:</strong> <span class="inline-code">EOS = (Choke·45 + Demand·30 + Scale·25) × choke-gate</span>, as outlier-robust national percentiles.</li>
+                <li><strong>A grounding guard</strong> that refuses any figure the model didn't pull from a data tool — so it <strong>can't invent a number.</strong></li>
+                <li>Built on public FAA · BTS · OurAirports data, with per-airport confidence flags.</li>
               </ul>
             </div>
             <div class="case__block">
-              <p class="case__label">The outcome</p>
+              <p class="case__label">Proof</p>
               <ul class="case__list">
-                <li>A working agent that grades and corrects linear-algebra work.</li>
-                <li>Built within <strong>Level Up</strong>, a two-year honors program for outstanding students.</li>
+                <li><strong>Live, deployed, and usable</strong> right now on Streamlit.</li>
+                <li><strong>22 passing tests</strong> over the scoring core and tools.</li>
+                <li>Full design doc covering methodology, tradeoffs, and where AI is (and isn't) used.</li>
               </ul>
             </div>
           </div>
 
           <ul class="tags tags--case">
-            <li>WizardMath</li><li>LoRA / PEFT</li><li>Fine-tuning</li><li>Python</li>
-            <!-- TODO: add a GitHub / demo link here if you have one -->
+            <li>Python 3.11</li><li>Streamlit</li><li>Gemini</li><li>Claude</li><li>Function-calling</li><li>pandas / parquet</li><li>Voice</li>
           </ul>
+          <div class="case__links">
+            <a class="btn btn--primary btn--sm" href="https://airport-investment-intelligence-agent.streamlit.app/" target="_blank" rel="noopener">Open live app ↗</a>
+            <a class="btn btn--ghost btn--sm" href="https://github.com/Niv-Matityahu/airport-investment-intelligence-agent" target="_blank" rel="noopener">Source &amp; design docs ↗</a>
+          </div>
         </div>
       </article>
+
+      <!-- CASE 04 — FinWise -->
+      <!-- TODO: FinWise repo is PRIVATE — no public code link added. Make it public (then add a
+           link) or add a demo video / screenshots if you want people to see it. -->
+      <article class="case" data-reveal>
+        <aside class="case__meta">
+          <span class="case__num">04</span>
+          <span class="case__tag">◆ Product · full-stack</span>
+          <span class="case__role">Personal finance + AI · solo build</span>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title">FinWise — a personal-finance app with a grounded AI advisor</h3>
+          <p class="case__context">
+            A full-stack finance assistant with a Hebrew, right-to-left interface: dashboard,
+            transactions, budgets, forecasts — and a Claude-powered advisor you can actually ask about
+            your own money. The same principle as the rest: the advisor is <strong>grounded</strong>,
+            not guessing.
+          </p>
+
+          <div class="case__detail">
+            <div class="case__block">
+              <p class="case__label">What I built</p>
+              <ul class="case__list">
+                <li>A single full-stack <strong>Next.js 15 / React 19 / TypeScript</strong> app in clean layers — UI, a single server endpoint, and framework-free business logic.</li>
+                <li>A <strong>grounded advisor:</strong> the server summarizes your real numbers and streams them to Claude as context, so it answers from your data — and the <strong>API key never leaves the server.</strong></li>
+                <li>Rules engines for categorization, budgets, alerts, and end-of-month forecasting — all pure, testable TypeScript.</li>
+                <li>CI (lint + build on every push) and one-click Render deploy; designed so swapping mock data for a real bank API touches one file.</li>
+              </ul>
+            </div>
+            <div class="case__block">
+              <p class="case__label">Why it matters</p>
+              <ul class="case__list">
+                <li>Shows the full stack: product, UX (incl. RTL), architecture, and a <strong>safely-integrated LLM.</strong></li>
+                <li>Built to graduate from mock data to a live Open-Banking feed without a rewrite.</li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="tags tags--case">
+            <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind v4</li><li>Claude (opus-4-8)</li><li>Streaming</li><li>CI/CD</li>
+          </ul>
+          <div class="case__links">
+            <span class="case__tag case__tag--private">Private repo — available on request</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 05 — SmartAssessor -->
+      <!-- TODO: confirm how to frame this — is it your B.Sc. final project (the WizardMath + LoRA
+           grader)? The README describes the serving architecture; tell me if the LoRA fine-tuning
+           belongs here and I'll weave it in. -->
+      <article class="case" data-reveal>
+        <aside class="case__meta">
+          <span class="case__num">05</span>
+          <span class="case__tag">◆ Research · open source</span>
+          <span class="case__role">B.Sc. final project · Azrieli College</span>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title">SmartAssessor — an AI tutor that grades exercises, step by step</h3>
+          <p class="case__context">
+            My degree's final project: a system that grades students' work and returns step-by-step
+            corrections, not just a mark. The interesting part is the <em>architecture</em> — running a
+            GPU language model without coupling the web app to a GPU.
+          </p>
+
+          <div class="case__detail">
+            <div class="case__block">
+              <p class="case__label">The design</p>
+              <ul class="case__list">
+                <li>A <strong>queue-decoupled pipeline:</strong> frontend → FastAPI backend → a Firestore job queue → a Colab GPU worker running the model → back to the user.</li>
+                <li>The backend stays light — it enqueues a job and waits; the heavy LLM inference runs on separate GPU hardware and writes results back.</li>
+                <li>Handles PDF upload → text extraction → chunking → grading → a structured evaluation.</li>
+              </ul>
+            </div>
+            <div class="case__block">
+              <p class="case__label">Context</p>
+              <ul class="case__list">
+                <li>Built within <strong>Level Up</strong>, a two-year honors program for outstanding students.</li>
+                <li>Part of a CS degree completed with a <strong>93 GPA.</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="tags tags--case">
+            <li>Python</li><li>FastAPI</li><li>Firestore queue</li><li>GPU worker</li><li>LLM grading</li>
+          </ul>
+          <div class="case__links">
+            <a class="btn btn--ghost btn--sm" href="https://github.com/Niv-Matityahu/SmartAssessor" target="_blank" rel="noopener">Source ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ───────────────────────── Foundations ───────────────────────── -->
+    <section class="section section--foundations" id="foundations">
+      <div class="section__head">
+        <p class="eyebrow" data-reveal>§ Foundations</p>
+        <h2 class="section__title" data-reveal>Built from scratch — systems &amp; ML.</h2>
+        <p class="section__sub" data-reveal>
+          Before the agents, the fundamentals. A sample of things I've built close to the metal and
+          implemented from first principles, rather than calling an API.
+        </p>
+      </div>
+
+      <div class="foundations__grid" data-reveal>
+        <a class="mini" href="https://github.com/Niv-Matityahu/Mini-Linux-Shell" target="_blank" rel="noopener">
+          <div class="mini__top"><span class="mini__title">Mini Linux Shell</span><span class="mini__lang">C</span></div>
+          <p class="mini__desc">A Unix-style shell: command execution via fork/execvp, background jobs, redirection, aliasing, logical operators, signal handling, and scripts.</p>
+          <span class="mini__repo">github ↗</span>
+        </a>
+        <a class="mini" href="https://github.com/Niv-Matityahu/WeatherForecast" target="_blank" rel="noopener">
+          <div class="mini__top"><span class="mini__title">Weather Forecast</span><span class="mini__lang">C++</span></div>
+          <p class="mini__desc">A desktop app that fetches live weather from the OpenWeatherMap API and renders it with ImGui over OpenGL / GLFW.</p>
+          <span class="mini__repo">github ↗</span>
+        </a>
+        <a class="mini" href="https://github.com/Niv-Matityahu/GameOfLife" target="_blank" rel="noopener">
+          <div class="mini__top"><span class="mini__title">Game of Life</span><span class="mini__lang">Java</span></div>
+          <p class="mini__desc">An interactive implementation of Conway's cellular automaton, with controls to visualize and steer the simulation across generations.</p>
+          <span class="mini__repo">github ↗</span>
+        </a>
+        <a class="mini" href="https://github.com/Niv-Matityahu/Logistic-Regression" target="_blank" rel="noopener">
+          <div class="mini__top"><span class="mini__title">Logistic Regression</span><span class="mini__lang">Python</span></div>
+          <p class="mini__desc">Multi-class classification from scratch — comparing One-vs-All, One-vs-One, and Softmax approaches.</p>
+          <span class="mini__repo">github ↗</span>
+        </a>
+        <a class="mini" href="https://github.com/Niv-Matityahu/K-Means-GMM" target="_blank" rel="noopener">
+          <div class="mini__top"><span class="mini__title">K-Means &amp; GMM</span><span class="mini__lang">Python</span></div>
+          <p class="mini__desc">Unsupervised learning: K-Means and Gaussian Mixture Models implemented and compared on clustering tasks.</p>
+          <span class="mini__repo">github ↗</span>
+        </a>
+        <a class="mini" href="https://github.com/Niv-Matityahu/Loan_approval_prediction" target="_blank" rel="noopener">
+          <div class="mini__top"><span class="mini__title">Loan Approval Prediction</span><span class="mini__lang">Python</span></div>
+          <p class="mini__desc">An end-to-end classification project predicting loan approval — data prep, modeling, and evaluation.</p>
+          <span class="mini__repo">github ↗</span>
+        </a>
+      </div>
     </section>
 
     <!-- ───────────────────────── About + experience ───────────────────────── -->
@@ -282,10 +396,10 @@
               system that earns its place in someone's workflow.
             </p>
             <p>
-              I'm comfortable owning the whole path: sitting with a client to turn a fuzzy need into a
-              technical plan, proving it with a POC, then shipping and monitoring it in production.
-              Before AI, I led a team as a commander in the IDF — which is where I learned to make
-              decisions under uncertainty and ship under pressure.
+              I like owning the whole path: sitting with a client to turn a fuzzy need into a technical
+              plan, proving it with a POC, then shipping and monitoring it in production. Before AI, I
+              led a team as a commander in the IDF — which is where I learned to make decisions under
+              uncertainty and ship under pressure.
             </p>
           </div>
         </div>
@@ -334,6 +448,7 @@
         <div class="contact__actions">
           <a class="btn btn--primary btn--lg" href="mailto:nivmat47@gmail.com">nivmat47@gmail.com</a>
           <a class="btn btn--ghost btn--lg" href="https://www.linkedin.com/in/niv-matityahu" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn btn--ghost btn--lg" href="https://github.com/Niv-Matityahu" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
     </section>
