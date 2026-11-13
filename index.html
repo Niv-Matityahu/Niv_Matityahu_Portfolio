@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Niv Matityahu — AI Engineer</title>
+  <meta name="description" content="AI Engineer building LLM agent systems that ship — and behave once they're live. Hybrid RAG, orchestration, guardrails, serverless AWS. Available for freelance and consulting." />
+
+  <!-- Open Graph / social share (used when the link is pasted into LinkedIn, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Niv Matityahu — AI Engineer" />
+  <meta property="og:description" content="I build LLM agents that ship — and behave once they're live. Agent systems, hybrid RAG, reliability & guardrails." />
+  <!-- TODO: add a 1200x630 preview image named og-image.png to this folder and set the URL below once deployed -->
+  <!-- <meta property="og:image" content="https://your-domain.com/og-image.png" /> -->
+  <meta name="theme-color" content="#111010" />
+
+  <!-- Fonts (external CDN works on Render; blocked only inside Claude Artifacts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to work</a>
+
+  <!-- ───────────────────────── Nav ───────────────────────── -->
+  <header class="nav" id="top">
+    <a class="wordmark" href="#top" aria-label="Niv Matityahu — home">
+      <span class="wordmark__name">NIV MATITYAHU</span>
+      <span class="status" title="Open to freelance &amp; consulting work">
+        <span class="status__dot" aria-hidden="true"></span>
+        <span class="status__label">Available for work</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#build">What I build</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2.1 2.1M16.9 16.9L19 19M19 5l-2.1 2.1M7.1 16.9L5 19"/></svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <!-- ───────────────────────── Hero ───────────────────────── -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero__inner">
+        <p class="eyebrow reveal" data-reveal>AI Engineer · Agent systems · Tel Aviv</p>
+        <h1 class="hero__title reveal" data-reveal>
+          I build LLM agents that ship —<br />
+          <span class="accent-text">and behave once they're live.</span>
+        </h1>
+        <p class="hero__lede reveal" data-reveal>
+          From a client's first vague idea to a production agent on serverless AWS: discovery,
+          architecture, retrieval, orchestration, and the guardrails that keep a language model
+          from inventing a price. My rule of thumb —
+          <span class="inline-code">the LLM decides <em>what</em>, the code decides <em>how</em>.</span>
+        </p>
+
+        <div class="hero__actions reveal" data-reveal>
+          <a class="btn btn--primary" href="#work">See the work</a>
+          <a class="btn btn--ghost" href="#contact">Start a project</a>
+        </div>
+
+        <dl class="telemetry reveal" data-reveal aria-label="At a glance">
+          <div class="telemetry__item">
+            <dt>Production agents live</dt>
+            <dd><span class="counter" data-count="2">0</span></dd>
+          </div>
+          <div class="telemetry__item">
+            <dt>Domains shipped</dt>
+            <dd>Retail · Travel · Finance</dd>
+          </div>
+          <div class="telemetry__item">
+            <dt>CS degree GPA</dt>
+            <dd><span class="counter" data-count="93">0</span><span class="telemetry__unit">/100</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── What I build ───────────────────────── -->
+    <section class="section" id="build">
+      <div class="section__head">
+        <p class="eyebrow" data-reveal>§ What I build</p>
+        <h2 class="section__title" data-reveal>Three things I get asked for most.</h2>
+        <p class="section__sub" data-reveal>
+          I own the whole path — not just a model in a notebook, but a system a business can
+          depend on. Here's where I'm most useful on a project.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card" data-reveal>
+          <p class="card__index">01</p>
+          <h3 class="card__title">Agent systems, end to end</h3>
+          <p class="card__body">
+            Requirements discovery → architecture → a POC that proves feasibility → a deployed
+            agent doing real work. Tool-calling and reliable state management across multi-turn
+            conversations, so the thing actually holds up past the demo.
+          </p>
+          <ul class="tags">
+            <li>LLM orchestration</li><li>Tool-calling</li><li>Multi-turn state</li><li>POC → prod</li>
+          </ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <p class="card__index">02</p>
+          <h3 class="card__title">Retrieval that's actually relevant</h3>
+          <p class="card__body">
+            Hybrid RAG when a single vector search isn't enough: taxonomy expansion, SQL
+            pre-filtering, weighted fusion of BM25 and embeddings, then re-ranking — tuned so
+            the model is handed the right context, not just <em>some</em> context.
+          </p>
+          <ul class="tags">
+            <li>Hybrid RAG</li><li>BM25 + embeddings</li><li>Re-ranking</li><li>SQL pre-filter</li>
+          </ul>
+        </article>
+
+        <article class="card" data-reveal>
+          <p class="card__index">03</p>
+          <h3 class="card__title">Reliability &amp; guardrails</h3>
+          <p class="card__body">
+            The part that keeps you out of the headlines: multi-stage output guardrails that
+            ground every fact and price, strip hallucinated names, and get measured by an
+            evaluation framework — so quality is a number, not a vibe.
+          </p>
+          <ul class="tags">
+            <li>Output guardrails</li><li>Grounding</li><li>Eval frameworks</li><li>Monitoring</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Selected work ───────────────────────── -->
+    <section class="section section--work" id="work">
+      <div class="section__head">
+        <p class="eyebrow" data-reveal>§ Selected work</p>
+        <h2 class="section__title" data-reveal>Three systems, from production to research.</h2>
+      </div>
+
+      <!-- CASE 01 -->
+      <!-- TODO (client naming): replace "a leading Israeli retailer" with the real name ONLY after
+           you've confirmed you're cleared by Moveo / the client to publish it. Same for CASE 02. -->
+      <article class="case" data-reveal>
+        <aside class="case__meta">
+          <span class="case__num">01</span>
+          <span class="case__tag case__tag--live">● Live in production</span>
+          <span class="case__role">Conversational commerce · Moveo AI</span>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title">A WhatsApp sales &amp; service agent for a leading Israeli retailer</h3>
+          <p class="case__context">
+            The retailer wanted customers to browse, get recommendations, and actually buy — inside
+            WhatsApp, the channel they already live in. The hard constraint: an assistant that can
+            quote real prices and stock, and <strong>never invents either</strong>.
+          </p>
+
+          <div class="case__detail">
+            <div class="case__block">
+              <p class="case__label">The approach</p>
+              <ul class="case__list">
+                <li><strong>Hybrid retrieval for product discovery</strong> — taxonomy expansion and SQL pre-filtering, then weighted fusion of BM25 + embeddings, then re-ranking.</li>
+                <li><strong>An orchestration layer</strong> with tool-calling and reliable state management across multi-turn conversations.</li>
+                <li><strong>Multi-stage output guardrails</strong> grounding every fact &amp; price and stripping hallucinated product names — <em>LLM decides what, code decides how</em>.</li>
+                <li><strong>Live data integration</strong> with product, inventory &amp; pricing sources, with automated syncs keeping the catalog current.</li>
+              </ul>
+            </div>
+            <div class="case__block">
+              <p class="case__label">The outcome</p>
+              <ul class="case__list">
+                <li>Shipped and <strong>live to real customers</strong> over WhatsApp.</li>
+                <li>Responses stay <strong>grounded and hallucination-free</strong> on prices and stock.</li>
+                <li>Catalog stays current automatically — no manual refresh.</li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="tags tags--case">
+            <li>Python</li><li>AWS Lambda</li><li>DynamoDB</li><li>S3</li><li>SQS FIFO</li><li>Hybrid RAG</li><li>LLM tool-calling</li><li>CI/CD</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- CASE 02 -->
+      <article class="case" data-reveal>
+        <aside class="case__meta">
+          <span class="case__num">02</span>
+          <span class="case__tag case__tag--live">● Live in production</span>
+          <span class="case__role">Customer service · Moveo AI</span>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title">A customer-service bot for a national airline</h3>
+          <p class="case__context">
+            High-volume, high-stakes support where a confidently wrong answer has real consequences
+            for travelers. I contributed to the retrieval, orchestration, and guardrail layers that
+            keep answers trustworthy at scale.
+          </p>
+
+          <div class="case__detail">
+            <div class="case__block">
+              <p class="case__label">The approach</p>
+              <ul class="case__list">
+                <li>Retrieval and orchestration tuned for accuracy on sensitive, policy-bound queries.</li>
+                <li>Guardrails that keep the assistant grounded instead of improvising.</li>
+                <li>Deployed and monitored on serverless AWS with push-to-main CI/CD.</li>
+              </ul>
+            </div>
+            <div class="case__block">
+              <p class="case__label">The outcome</p>
+              <ul class="case__list">
+                <li>In production for a <strong>national carrier</strong>.</li>
+                <li>Handles real support traffic with grounded, on-policy answers.</li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="tags tags--case">
+            <li>Python</li><li>RAG</li><li>LLM orchestration</li><li>Guardrails</li><li>Serverless AWS</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- CASE 03 -->
+      <article class="case" data-reveal>
+        <aside class="case__meta">
+          <span class="case__num">03</span>
+          <span class="case__tag">◆ Research · Side project</span>
+          <span class="case__role">B.Sc. final project · Azrieli College</span>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title">An AI tutor that grades linear-algebra exercises, step by step</h3>
+          <p class="case__context">
+            My degree's final project, and a question I wanted answered: could a smaller, open model
+            actually <em>check mathematical reasoning</em> — giving step-by-step corrections, not just
+            a final mark?
+          </p>
+
+          <div class="case__detail">
+            <div class="case__block">
+              <p class="case__label">The approach</p>
+              <ul class="case__list">
+                <li>Fine-tuned <strong>WizardMath with LoRA</strong> to grade exercises and produce step-by-step corrections.</li>
+                <li>Built the data and training loop to teach the model <em>how to evaluate</em> a solution, not just solve one.</li>
+              </ul>
+            </div>
+            <div class="case__block">
+              <p class="case__label">The outcome</p>
+              <ul class="case__list">
+                <li>A working agent that grades and corrects linear-algebra work.</li>
+                <li>Built within <strong>Level Up</strong>, a two-year honors program for outstanding students.</li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="tags tags--case">
+            <li>WizardMath</li><li>LoRA / PEFT</li><li>Fine-tuning</li><li>Python</li>
+            <!-- TODO: add a GitHub / demo link here if you have one -->
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ───────────────────────── About + experience ───────────────────────── -->
+    <section class="section section--about" id="about">
+      <div class="about__grid">
+        <div class="about__intro">
+          <p class="eyebrow" data-reveal>§ About</p>
+          <h2 class="section__title" data-reveal>An engineer who thinks like a PM.</h2>
+          <div class="about__text" data-reveal>
+            <p>
+              I'm an AI Engineer with a product mindset. I'm formally trained in product management,
+              so I build with the business outcome in view — not just a model that scores well, but a
+              system that earns its place in someone's workflow.
+            </p>
+            <p>
+              I'm comfortable owning the whole path: sitting with a client to turn a fuzzy need into a
+              technical plan, proving it with a POC, then shipping and monitoring it in production.
+              Before AI, I led a team as a commander in the IDF — which is where I learned to make
+              decisions under uncertainty and ship under pressure.
+            </p>
+          </div>
+        </div>
+
+        <div class="about__rail" data-reveal>
+          <ol class="timeline" aria-label="Experience and education">
+            <li class="timeline__item">
+              <span class="timeline__when">Jan 2026 — Present</span>
+              <span class="timeline__what">AI Engineer</span>
+              <span class="timeline__where">Moveo AI</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__when">May — Dec 2025</span>
+              <span class="timeline__what">Data Integration &amp; Automation</span>
+              <span class="timeline__where">Mobileye · ETL (Revit ↔ GIV), Python</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__when">Sep 2025</span>
+              <span class="timeline__what">Product Management, certified</span>
+              <span class="timeline__where">Product Experts</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__when">2022 — 2025</span>
+              <span class="timeline__what">B.Sc. Computer Science · GPA 93</span>
+              <span class="timeline__where">Azrieli College of Engineering · Level Up honors</span>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__when">2016 — 2018</span>
+              <span class="timeline__what">Team Commander</span>
+              <span class="timeline__where">Israel Defense Forces</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Contact ───────────────────────── -->
+    <section class="section section--contact" id="contact">
+      <div class="contact__inner" data-reveal>
+        <p class="eyebrow">§ Contact</p>
+        <h2 class="contact__title">Have an agent you need built right?</h2>
+        <p class="contact__sub">
+          I take on a small number of freelance and consulting projects — from a scoped POC to a
+          production system. If you're trying to put an LLM somewhere it has to be reliable, let's talk.
+        </p>
+        <div class="contact__actions">
+          <a class="btn btn--primary btn--lg" href="mailto:nivmat47@gmail.com">nivmat47@gmail.com</a>
+          <a class="btn btn--ghost btn--lg" href="https://www.linkedin.com/in/niv-matityahu" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer__name">Niv Matityahu</span>
+    <span class="footer__meta">AI Engineer · Built from scratch, hosted on Render</span>
+    <a class="footer__top" href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>

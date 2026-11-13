@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: niv-portfolio
+    runtime: static
+    # If this folder is the repo root, leave rootDir out and set staticPublishPath to "."
+    # If it lives inside a larger repo, set rootDir: portfolio
+    staticPublishPath: .
+    buildCommand: ""
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
