@@ -120,6 +120,14 @@
         { cls: "a-ok",     text: 'answer  "Lowest is $712. Nothing under $700."' },
         { cls: "a-badge",  text: "✓ grounded — live fares API" },
       ],
+      [
+        { cls: "a-user",   text: 'modi\'in ezrahi  "any payroll anomalies this month?"' },
+        { cls: "a-tool",   text: "→ checks.run(hilan_vs_prev_month)" },
+        { cls: "a-draft",  text: 'llm draft  "Looks all clear."' },
+        { cls: "a-reject", text: "✕ guard: claim not tied to a row — rejected", strikePrev: true },
+        { cls: "a-ok",     text: 'answer  "3 flags — e.g. row 47: net pay < 0."' },
+        { cls: "a-badge",  text: "✓ grounded — cites file + row" },
+      ],
     ];
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -154,5 +162,51 @@
         }
       })();
     }
+  }
+
+  /* ── Catalog filter ───────────────────────────────────── */
+  const chips = document.querySelectorAll(".filter-chip");
+  chips.forEach((c) => c.addEventListener("click", () => {
+    chips.forEach((x) => { x.classList.remove("active"); x.setAttribute("aria-selected", "false"); });
+    c.classList.add("active"); c.setAttribute("aria-selected", "true");
+    const f = c.getAttribute("data-filter");
+    document.querySelectorAll(".catalog .case").forEach((card) => {
+      card.style.display = (f === "all" || card.getAttribute("data-cat") === f) ? "" : "none";
+    });
+  }));
+
+  /* ── Case modal ───────────────────────────────────────── */
+  const modal = document.getElementById("case-modal");
+  if (modal) {
+    const body = modal.querySelector("#modal-body");
+    const titleEl = modal.querySelector("#modal-title");
+    const eyebrowEl = modal.querySelector("#modal-eyebrow");
+    let lastFocus = null;
+    function openCase(card) {
+      const tpl = card.querySelector(".case__full");
+      if (!tpl) return;
+      lastFocus = document.activeElement;
+      const t = card.querySelector(".case__title");
+      const r = card.querySelector(".case__role");
+      titleEl.textContent = t ? t.textContent : "";
+      eyebrowEl.textContent = r ? r.textContent : "";
+      body.innerHTML = "";
+      body.appendChild(tpl.content.cloneNode(true));
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      const close = modal.querySelector(".modal__close");
+      if (close) close.focus();
+    }
+    function closeCase() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    document.querySelectorAll(".case__more").forEach((b) =>
+      b.addEventListener("click", (e) => { e.preventDefault(); openCase(b.closest(".case")); }));
+    modal.addEventListener("click", (e) => { if (e.target.hasAttribute("data-close")) closeCase(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) closeCase(); });
   }
 })();
