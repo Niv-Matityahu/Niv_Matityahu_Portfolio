@@ -626,3 +626,11 @@ a { color: inherit; }
   transition: opacity 0.18s ease, filter 0.18s ease;
 }
 .logo-img:hover { opacity: 1; filter: grayscale(0); }
+
+
+/* ── Tech logo chips (Simple Icons, inlined) ────────────── */
+.icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.tags li { display: inline-flex; align-items: center; gap: 0.4rem; }
+.stack__icon { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; opacity: 0.85; }
+.mini__lang { display: inline-flex; align-items: center; gap: 0.35rem; }
+.mini__lang .stack__icon { width: 13px; height: 13px; opacity: 1; }
