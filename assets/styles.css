@@ -843,3 +843,48 @@ body.has-cursor .case, body.has-cursor .client-tile, body.has-cursor .mini { cur
 @keyframes modalIn { from { opacity: 0; transform: translateY(18px); } }
 @media (max-width: 560px) { .modal__panel { margin: 0; min-height: 100dvh; border-radius: 0; } }
 @media (prefers-reduced-motion: reduce) { .modal__panel, .modal__backdrop { animation: none; } }
+
+
+/* ============================================================
+   SCROLL-PINNED APPROACH
+   ============================================================ */
+.approach { position: relative; border-top: 1px solid var(--line); }
+.approach__track { height: 300vh; }
+.approach__sticky {
+  position: sticky; top: 0; min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem);
+  align-items: center; max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(4rem, 9vw, 7rem) var(--pad);
+}
+.approach__lead {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.5rem, 1rem + 2.4vw, 2.6rem); line-height: 1.18;
+  letter-spacing: -0.02em; text-wrap: balance; margin: 0.9rem 0 0;
+}
+.approach__body { color: var(--text-muted); margin-top: 1.3rem; max-width: 46ch; }
+.approach__stage { display: flex; gap: clamp(1rem, 2vw, 1.6rem); }
+.approach__rail { position: relative; flex: 0 0 3px; width: 3px; background: var(--line); border-radius: 3px; align-self: stretch; }
+.approach__rail span { position: absolute; left: 0; top: 0; width: 100%; height: calc(var(--p, 0) * 100%); background: var(--accent); border-radius: 3px; transition: height 0.15s linear; }
+.pillars { list-style: none; display: flex; flex-direction: column; gap: clamp(0.9rem, 2vw, 1.4rem); flex: 1; margin: 0; padding: 0; }
+.pillar {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(1.2rem, 2.4vw, 1.7rem); background: var(--surface);
+  opacity: 0.38; transform: translateX(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+.pillar.active { opacity: 1; transform: none; border-color: var(--line-strong); box-shadow: 0 16px 40px -28px rgba(0,0,0,.6); }
+.pillar__n { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; color: var(--text-faint); }
+.pillar.active .pillar__n { color: var(--accent); }
+
+@media (max-width: 820px) {
+  .approach__track { height: auto; }
+  .approach__sticky { position: static; min-height: 0; grid-template-columns: 1fr; padding: clamp(3.5rem,10vw,5rem) var(--pad); }
+  .pillar { opacity: 1; transform: none; }
+  .approach__rail { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .approach__track { height: auto; }
+  .approach__sticky { position: static; min-height: 0; }
+  .pillar { opacity: 1; transform: none; }
+  .approach__rail span { height: 100%; transition: none; }
+}

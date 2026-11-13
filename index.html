@@ -128,40 +128,37 @@
     </section>
 
     <!-- ───────────────────────── Approach / common thread ───────────────────────── -->
-    <section class="section section--approach" id="approach">
-      <div class="section__head">
-        <p class="eyebrow" data-reveal>§ The common thread</p>
-        <p class="approach__lead" data-reveal>
-          An LLM is great at deciding <span class="accent-text">what</span> to do —
-          and the wrong tool for computing a number. So I split the two, and make the split enforceable.
-        </p>
-        <p class="approach__body" data-reveal>
-          The same architecture shows up in everything below: the model plans, picks tools, and
-          explains itself in plain language — while deterministic code computes every price, score,
-          and figure. A grounding guard sits in the middle: if the model ever states a number it
-          didn't get from a tool, the answer is refused and the tool is called. That's the difference
-          between an impressive demo and something a business can actually depend on.
-        </p>
-      </div>
-
-      <div class="approach__pillars" data-reveal>
-        <div class="pillar">
-          <p class="pillar__k">Plans</p>
-          <h3 class="pillar__t">The LLM decides <em>what</em></h3>
-          <p class="pillar__d">Understands the request, chooses the right tools, handles multi-turn
-            conversation, and explains the answer in human language.</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar__k">Computes</p>
-          <h3 class="pillar__t">The code decides <em>how</em></h3>
-          <p class="pillar__d">Prices, scores, and retrieval ranking are computed by deterministic
-            code — testable, repeatable, and auditable. No vibes.</p>
-        </div>
-        <div class="pillar">
-          <p class="pillar__k">Enforces</p>
-          <h3 class="pillar__t">The guard makes it true</h3>
-          <p class="pillar__d">A grounding layer refuses any fact the model didn't source from a
-            tool, and an eval framework turns "is it accurate?" into a number.</p>
+    <section class="approach" id="approach">
+      <div class="approach__track">
+        <div class="approach__sticky">
+          <div class="approach__head">
+            <p class="eyebrow">§ The common thread</p>
+            <h2 class="approach__lead">An LLM is great at deciding <span class="accent-text">what</span> to do &mdash; and the wrong tool for computing a number. So I split the two, and make the split <span class="accent-text">enforceable</span>.</h2>
+            <p class="approach__body">The same architecture runs through every project above: the model plans and explains, deterministic code computes every price, score and figure, and a grounding guard refuses anything the model didn&rsquo;t source from a tool.</p>
+          </div>
+          <div class="approach__stage">
+            <div class="approach__rail" aria-hidden="true"><span></span></div>
+            <ol class="pillars">
+              <li class="pillar" data-step="0">
+                <span class="pillar__n">01</span>
+                <p class="pillar__k">Plans</p>
+                <h3 class="pillar__t">The LLM decides <em>what</em></h3>
+                <p class="pillar__d">Understands the request, picks the right tools, holds multi-turn context, and explains the answer in human language.</p>
+              </li>
+              <li class="pillar" data-step="1">
+                <span class="pillar__n">02</span>
+                <p class="pillar__k">Computes</p>
+                <h3 class="pillar__t">The code decides <em>how</em></h3>
+                <p class="pillar__d">Prices, scores and retrieval ranking are computed by deterministic code &mdash; testable, repeatable, auditable. No vibes.</p>
+              </li>
+              <li class="pillar" data-step="2">
+                <span class="pillar__n">03</span>
+                <p class="pillar__k">Enforces</p>
+                <h3 class="pillar__t">The guard makes it true</h3>
+                <p class="pillar__d">A grounding layer refuses any fact the model didn&rsquo;t source from a tool, and an eval framework turns &ldquo;is it accurate?&rdquo; into a number.</p>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -170,14 +167,13 @@
     <section class="section section--work" id="work">
       <div class="section__head">
         <p class="eyebrow" data-reveal>§ Selected work</p>
-        <h2 class="section__title" data-reveal>Ten systems — production, independent, and research.</h2>
-        <p class="section__sub" data-reveal>Six production agents shipped for real companies, three independent builds, and an evaluation rig. Filter, or open any one for the full case.</p>
+        <h2 class="section__title" data-reveal>Nine systems — production and independent builds.</h2>
+        <p class="section__sub" data-reveal>Six production agents shipped for real companies, plus three independent builds. Filter, or open any one for the full case.</p>
       </div>
       <div class="filters" role="tablist" aria-label="Filter projects">
         <button class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
         <button class="filter-chip" data-filter="production" role="tab" aria-selected="false">Production</button>
         <button class="filter-chip" data-filter="independent" role="tab" aria-selected="false">Independent</button>
-        <button class="filter-chip" data-filter="rnd" role="tab" aria-selected="false">R&amp;D</button>
       </div>
       <div class="catalog">
       <article class="case case--feature" data-cat="production" data-reveal>
@@ -246,21 +242,10 @@
           <template class="case__full"><p class="case__context">Pulling camera footage off a live bus fleet is flaky — buses go offline mid-transfer. The system had to be resilient and trackable.</p><div class="case__detail"><div class="case__block"><p class="case__label">The approach</p><ul class="case__list"><li>Footage requests become tracked tickets in SQLite</li><li>The service drives the camera-server to pull video per bus, and auto-retries through connectivity gaps</li><li>A dashboard to submit, monitor, and export</li></ul></div><div class="case__block"><p class="case__label">Outcome</p><ul class="case__list"><li>A resilient FastAPI retrieval pipeline that survives interrupted transfers</li><li>Self-serve dashboard for footage requests</li></ul></div></div></template>
         </div>
       </article>
-      <article class="case case--feature" data-cat="rnd" data-reveal>
-        <div class="cover case__cover"><svg viewBox="0 0 400 175" role="img" aria-label="LL_M.ai — an LLM evaluation rig"><path class="cv-thin" d="M60 40 V140 H344"/><rect class="cv-dim" x="92" y="78" width="44" height="62" rx="4"/><rect class="cv-accf" x="166" y="58" width="44" height="82" rx="4"/><rect class="cv-dim" x="240" y="92" width="44" height="48" rx="4"/><circle class="cv-acc" cx="188" cy="44" r="6"/><path class="cv-acc" d="M300 58 l9 9 l18 -20"/></svg></div>
-        <div class="case__body">
-          <div class="case__meta-row"><span class="case__num">07</span><span class="case__tag ">◆ R&D · internal</span><span class="case__role">Moveo AI · research</span></div>
-          <h3 class="case__title">LL_M.ai — an LLM evaluation rig</h3>
-          <p class="case__context">A 'fair-exam' harness that measures whether a cheaper, self-hosted open model can match a frontier model on an agent's hardest real customer turns — before you switch. Built cross-project: each agent plugs in as an adapter.</p>
-          <ul class="tags tags--case"><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-python"></use></svg>Python</li><li>LLM-as-judge</li><li>eval harness</li></ul>
-          <div class="case__links"><button class="btn btn--ghost btn--sm case__more" type="button" aria-haspopup="dialog">View case</button></div>
-          <template class="case__full"><p class="case__context">Switching an agent's model to a cheaper self-hosted one is only worth it if quality holds on the turns that matter. Guessing is expensive; this is the measuring instrument.</p><div class="case__detail"><div class="case__block"><p class="case__label">The approach</p><ul class="case__list"><li>Two gates: a fast frozen-snapshot benchmark, then a live loop that drives the project's real agent pipeline</li><li>Grades grounding, memory/referent retention, and honest-fallback on a 1–10 rubric</li><li>Deterministic anchors (correct SKU, no invented price, right tool called) override the LLM judge</li><li>The judge is blind, order-randomized, and drawn from a non-contestant model family</li></ul></div><div class="case__block"><p class="case__label">Outcome</p><ul class="case__list"><li>Turns 'is this model good enough?' from a guess into evidence</li><li>Cross-project by construction — one rig, one adapter per agent</li></ul></div></div></template>
-        </div>
-      </article>
       <article class="case case--feature" data-cat="independent" data-reveal>
         <div class="cover case__cover"><svg viewBox="0 0 400 175" role="img" aria-label="Airport Investment Intelligence Agent"><path class="cv-thin" d="M46 60 L92 108 M92 108 L140 72 M140 72 L120 126 M46 60 L120 126"/><circle class="cv-mut" cx="46" cy="60" r="5"/><circle class="cv-mut" cx="92" cy="108" r="5"/><circle class="cv-mut" cx="120" cy="126" r="5"/><circle class="cv-acc" cx="140" cy="72" r="11"/><circle class="cv-accf" cx="140" cy="72" r="4"/><rect class="cv-accf" x="212" y="46" width="150" height="16" rx="8"/><rect class="cv-dim" x="212" y="80" width="112" height="16" rx="8"/><rect class="cv-dim" x="212" y="114" width="78" height="16" rx="8"/></svg></div>
         <div class="case__body">
-          <div class="case__meta-row"><span class="case__num">08</span><span class="case__tag case__tag--demo">▶ Live demo · open source</span><span class="case__role">Independent build</span></div>
+          <div class="case__meta-row"><span class="case__num">07</span><span class="case__tag case__tag--demo">▶ Live demo · open source</span><span class="case__role">Independent build</span></div>
           <h3 class="case__title">Airport Investment Intelligence Agent</h3>
           <p class="case__context">A conversational agent (chat + voice) that ranks US airports for terminal-expansion investment. The thesis — you only profit where capacity is choked — is encoded in a deterministic score, not the prompt.</p>
           <ul class="tags tags--case"><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-python"></use></svg>Python</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-streamlit"></use></svg>Streamlit</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-googlegemini"></use></svg>Gemini</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-anthropic"></use></svg>Claude</li><li>pandas</li></ul>
@@ -271,7 +256,7 @@
       <article class="case" data-cat="independent" data-reveal>
         <div class="cover case__cover"><svg viewBox="0 0 400 175" role="img" aria-label="FinWise — finance app + grounded advisor"><path class="cv-thin" d="M48 28 L48 142 L372 142"/><rect class="cv-dim" x="78" y="104" width="26" height="38" rx="3"/><rect class="cv-dim" x="128" y="88" width="26" height="54" rx="3"/><rect class="cv-dim" x="178" y="96" width="26" height="46" rx="3"/><rect class="cv-dim" x="228" y="70" width="26" height="72" rx="3"/><rect class="cv-dim" x="278" y="54" width="26" height="88" rx="3"/><polyline class="cv-acc" points="62,118 112,108 162,114 212,84 262,90 322,48"/><circle class="cv-accf" cx="322" cy="48" r="6"/><circle class="cv-acc" cx="352" cy="44" r="15"/><path class="cv-acc" d="M352 36 L352 52 M346 44 L358 44"/></svg></div>
         <div class="case__body">
-          <div class="case__meta-row"><span class="case__num">09</span><span class="case__tag ">◆ Product · full-stack</span><span class="case__role">Independent build</span></div>
+          <div class="case__meta-row"><span class="case__num">08</span><span class="case__tag ">◆ Product · full-stack</span><span class="case__role">Independent build</span></div>
           <h3 class="case__title">FinWise — finance app + grounded advisor</h3>
           <p class="case__context">A full-stack personal-finance app with a Hebrew RTL UI — dashboard, transactions, budgets, forecasts — and a Claude advisor that answers from your real numbers, with the API key kept server-side.</p>
           <ul class="tags tags--case"><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-nextdotjs"></use></svg>Next.js</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-react"></use></svg>React</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-typescript"></use></svg>TypeScript</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-tailwindcss"></use></svg>Tailwind</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-anthropic"></use></svg>Claude</li></ul>
@@ -282,7 +267,7 @@
       <article class="case" data-cat="independent" data-reveal>
         <div class="cover case__cover"><svg viewBox="0 0 400 175" role="img" aria-label="SmartAssessor — step-by-step grading tutor"><rect class="cv-line" x="30" y="38" width="78" height="100" rx="8"/><rect class="cv-dim" x="44" y="56" width="50" height="8" rx="4"/><rect class="cv-dim" x="44" y="72" width="40" height="8" rx="4"/><rect class="cv-dim" x="44" y="88" width="50" height="8" rx="4"/><path class="cv-acc" d="M46 112 l8 8 l16 -18"/><path class="cv-acc" d="M118 88 L152 88 M144 81 L152 88 L144 95"/><rect class="cv-acc" x="166" y="52" width="78" height="22" rx="4"/><rect class="cv-line" x="166" y="80" width="78" height="22" rx="4"/><rect class="cv-line" x="166" y="108" width="78" height="22" rx="4"/><path class="cv-acc" d="M254 88 L288 88 M280 81 L288 88 L280 95"/><rect class="cv-line" x="300" y="56" width="66" height="64" rx="7"/><rect class="cv-dim" x="316" y="72" width="34" height="32" rx="4"/><path class="cv-line" d="M300 72 h-10 M300 104 h-10 M366 72 h10 M366 104 h10 M318 56 v-10 M348 56 v-10"/></svg></div>
         <div class="case__body">
-          <div class="case__meta-row"><span class="case__num">10</span><span class="case__tag ">◆ Research · open source</span><span class="case__role">B.Sc. final project</span></div>
+          <div class="case__meta-row"><span class="case__num">09</span><span class="case__tag ">◆ Research · open source</span><span class="case__role">B.Sc. final project</span></div>
           <h3 class="case__title">SmartAssessor — step-by-step grading tutor</h3>
           <p class="case__context">My degree's final project: it grades students' exercises with step-by-step corrections. The interesting part is the architecture — running a GPU language model without coupling the web app to a GPU.</p>
           <ul class="tags tags--case"><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-python"></use></svg>Python</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-fastapi"></use></svg>FastAPI</li><li><svg class="stack__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-firebase"></use></svg>Firebase</li><li>Colab GPU</li></ul>

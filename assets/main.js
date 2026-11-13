@@ -209,4 +209,29 @@
     modal.addEventListener("click", (e) => { if (e.target.hasAttribute("data-close")) closeCase(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) closeCase(); });
   }
+
+  /* ── Scroll-pinned Approach ────────────────────────────── */
+  const approachTrack = document.querySelector(".approach__track");
+  if (approachTrack) {
+    const pillars = approachTrack.querySelectorAll(".pillar");
+    const rail = approachTrack.querySelector(".approach__rail span");
+    const canPin = window.matchMedia("(min-width: 821px)").matches && !reduce;
+    if (canPin) {
+      let ticking = false;
+      function upd() {
+        ticking = false;
+        const total = Math.max(approachTrack.offsetHeight - window.innerHeight, 1);
+        const scrolled = Math.min(Math.max(-approachTrack.getBoundingClientRect().top, 0), total);
+        const p = scrolled / total;
+        if (rail) rail.style.setProperty("--p", p.toFixed(3));
+        const idx = Math.min(pillars.length - 1, Math.floor(p * pillars.length * 0.999));
+        pillars.forEach((pl, i) => pl.classList.toggle("active", i <= idx));
+      }
+      window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+      window.addEventListener("resize", upd);
+      upd();
+    } else {
+      pillars.forEach((pl) => pl.classList.add("active"));
+    }
+  }
 })();
