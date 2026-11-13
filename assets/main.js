@@ -1,237 +1,89 @@
 /* ============================================================
-   Niv Matityahu — portfolio behavior
-   theme · scroll reveals · count-up · intro boot ·
-   custom cursor + magnetic · live grounding-guard demo
+   Niv Matityahu — "The Index" behavior
+   preloader · theme · hover-preview gallery · custom cursor
    ============================================================ */
 (function () {
   "use strict";
-
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  const fine = window.matchMedia("(pointer: fine)").matches;
   const root = document.documentElement;
 
-  /* ── Theme toggle ─────────────────────────────────────── */
-  const toggle = document.getElementById("theme-toggle");
+  /* theme */
   const stored = (function () { try { return localStorage.getItem("theme"); } catch (e) { return null; } })();
   if (stored === "light" || stored === "dark") root.setAttribute("data-theme", stored);
-  function currentTheme() {
-    const a = root.getAttribute("data-theme");
-    return a || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  }
+  const current = () => root.getAttribute("data-theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const toggle = document.getElementById("toggle");
   if (toggle) toggle.addEventListener("click", function () {
-    const next = currentTheme() === "dark" ? "light" : "dark";
+    const next = current() === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
-  /* ── Reveal on scroll ─────────────────────────────────── */
-  const revealables = document.querySelectorAll("[data-reveal]");
-  if (reduce || !("IntersectionObserver" in window)) {
-    revealables.forEach((el) => el.classList.add("is-visible"));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    revealables.forEach((el) => io.observe(el));
+  /* preloader */
+  const load = document.querySelector(".load");
+  if (load) {
+    if (reduce) { load.remove(); }
+    else { setTimeout(() => load.classList.add("load--done"), 950); setTimeout(() => load.remove(), 1750); }
   }
 
-  /* ── Count-up numbers ─────────────────────────────────── */
-  function runCounter(el) {
-    const target = parseInt(el.getAttribute("data-count"), 10) || 0;
-    if (reduce) { el.textContent = String(target); return; }
-    const dur = 1100; let start = null;
-    (function step(ts) {
-      if (start === null) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
-      if (p < 1) requestAnimationFrame(step);
-    })(performance.now());
-  }
-  const counters = document.querySelectorAll(".counter");
-  if ("IntersectionObserver" in window) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { runCounter(e.target); cio.unobserve(e.target); } });
-    }, { threshold: 0.6 });
-    counters.forEach((el) => cio.observe(el));
-  } else counters.forEach((el) => (el.textContent = el.getAttribute("data-count")));
+  /* hover-preview gallery */
+  const rows = Array.prototype.slice.call(document.querySelectorAll(".row"));
+  const card = document.getElementById("pv-card");
+  const open = document.getElementById("pv-open");
+  const logoWrap = document.getElementById("pv-logo");
+  const byId = (id) => document.getElementById(id);
 
-  /* ── Intro boot counter ───────────────────────────────── */
-  const introCount = document.querySelector(".intro__count");
-  if (introCount) {
-    if (reduce) { introCount.textContent = "100"; }
-    else {
-      const dur = 1150; let start = null;
-      (function step(ts) {
-        if (start === null) start = ts;
-        const p = Math.min((ts - start) / dur, 1);
-        introCount.textContent = String(Math.round(p * 100));
-        if (p < 1) requestAnimationFrame(step);
-      })(performance.now());
+  function apply(d) {
+    byId("pv-i").textContent = d.i || "";
+    byId("pv-title").innerHTML = d.title || "";
+    byId("pv-kind").textContent = d.kind || "";
+    byId("pv-desc").innerHTML = d.desc || "";
+    byId("pv-tags").textContent = d.tags || "";
+    if (logoWrap) {
+      logoWrap.innerHTML = d.logo ? '<img src="' + d.logo + '" alt="">' : "";
+      logoWrap.style.display = d.logo ? "" : "none";
+    }
+    if (open) {
+      open.textContent = d.linklabel || "Open ↗";
+      if (d.link) { open.href = d.link; open.classList.remove("is-muted"); open.setAttribute("target", "_blank"); open.setAttribute("rel", "noopener"); }
+      else { open.removeAttribute("href"); open.classList.add("is-muted"); }
     }
   }
 
-  /* ── Custom cursor + magnetic buttons ─────────────────── */
-  if (finePointer && !reduce) {
-    const dot = document.createElement("div"); dot.className = "cursor-dot";
-    const ring = document.createElement("div"); ring.className = "cursor-ring";
-    document.body.append(dot, ring);
-    document.body.classList.add("has-cursor");
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-    addEventListener("mousemove", (e) => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
-    }, { passive: true });
+  function show(row) {
+    rows.forEach((r) => r.classList.toggle("active", r === row));
+    const d = row.dataset;
+    if (reduce || !card) { apply(d); return; }
+    card.classList.add("fade");
+    setTimeout(() => { apply(d); card.classList.remove("fade"); }, 150);
+  }
+
+  rows.forEach((r) => {
+    r.addEventListener("mouseenter", () => show(r));
+    r.addEventListener("focusin", () => show(r));
+  });
+  if (rows[0]) rows[0].classList.add("active");
+
+  /* disabled rows don't navigate */
+  document.querySelectorAll('.row__link[aria-disabled="true"]').forEach((a) =>
+    a.addEventListener("click", (e) => e.preventDefault()));
+
+  /* custom cursor (desktop) */
+  if (fine && !reduce) {
+    const dot = document.createElement("div");
+    dot.className = "cur";
+    document.body.appendChild(dot);
+    document.body.classList.add("has-cur");
+    let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y;
+    addEventListener("mousemove", (e) => { x = e.clientX; y = e.clientY; }, { passive: true });
     (function loop() {
-      rx += (mx - rx) * 0.2; ry += (my - ry) * 0.2;
-      ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+      cx += (x - cx) * 0.2; cy += (y - cy) * 0.2;
+      dot.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)";
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll("a,button,.case,.client-tile,.mini,.theme-toggle").forEach((el) => {
-      el.addEventListener("mouseenter", () => ring.classList.add("hover"));
-      el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
+    document.querySelectorAll("a, button, .row").forEach((n) => {
+      n.addEventListener("mouseenter", () => dot.classList.add("cur--big"));
+      n.addEventListener("mouseleave", () => dot.classList.remove("cur--big"));
     });
-    document.querySelectorAll(".magnetic").forEach((el) => {
-      const s = 0.4;
-      el.addEventListener("mousemove", (e) => {
-        const r = el.getBoundingClientRect();
-        el.style.transform = `translate(${(e.clientX - (r.left + r.width / 2)) * s}px,${(e.clientY - (r.top + r.height / 2)) * s}px)`;
-      });
-      el.addEventListener("mouseleave", () => { el.style.transform = ""; });
-    });
-  }
-
-  /* ── Live "grounding guard" demo ──────────────────────── */
-  const log = document.getElementById("agent-log");
-  if (log) {
-    const scenes = [
-      [
-        { cls: "a-user",   text: 'you  "BILLY bookcase in white — in stock? price?"' },
-        { cls: "a-tool",   text: "→ catalog.lookup(\"BILLY\", \"white\")" },
-        { cls: "a-draft",  text: 'llm draft  "Yes — ₪299, ships today."' },
-        { cls: "a-reject", text: "✕ guard: ₪299 not sourced from a tool — rejected", strikePrev: true },
-        { cls: "a-ok",     text: 'answer  "In stock, white. ₪349."' },
-        { cls: "a-badge",  text: "✓ grounded — price from catalog" },
-      ],
-      [
-        { cls: "a-user",   text: 'you  "TLV → JFK next week, under $700?"' },
-        { cls: "a-tool",   text: "→ fares.search(TLV, JFK, max=700)" },
-        { cls: "a-draft",  text: 'llm draft  "Sure — $649 on Tuesday."' },
-        { cls: "a-reject", text: "✕ guard: fare unverified — rejected", strikePrev: true },
-        { cls: "a-ok",     text: 'answer  "Lowest is $712. Nothing under $700."' },
-        { cls: "a-badge",  text: "✓ grounded — live fares API" },
-      ],
-      [
-        { cls: "a-user",   text: 'modi\'in ezrahi  "any payroll anomalies this month?"' },
-        { cls: "a-tool",   text: "→ checks.run(hilan_vs_prev_month)" },
-        { cls: "a-draft",  text: 'llm draft  "Looks all clear."' },
-        { cls: "a-reject", text: "✕ guard: claim not tied to a row — rejected", strikePrev: true },
-        { cls: "a-ok",     text: 'answer  "3 flags — e.g. row 47: net pay < 0."' },
-        { cls: "a-badge",  text: "✓ grounded — cites file + row" },
-      ],
-    ];
-    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-    if (reduce) {
-      scenes[0].forEach((s) => {
-        const d = document.createElement("div");
-        d.className = "a-line " + s.cls + (s.strikePrev ? "" : "");
-        d.textContent = s.text; log.appendChild(d);
-      });
-    } else {
-      async function type(el, text, cps) {
-        el.classList.add("caret");
-        for (let i = 0; i < text.length; i++) { el.textContent = text.slice(0, i + 1); await sleep(1000 / cps); }
-        el.classList.remove("caret");
-      }
-      (async function run() {
-        let i = 0;
-        while (true) {
-          log.innerHTML = "";
-          let lastDraft = null;
-          for (const step of scenes[i % scenes.length]) {
-            if (step.strikePrev && lastDraft) lastDraft.classList.add("struck");
-            const line = document.createElement("div");
-            line.className = "a-line " + step.cls;
-            log.appendChild(line);
-            await type(line, step.text, step.cls === "a-tool" ? 45 : 38);
-            if (step.cls === "a-draft") lastDraft = line;
-            await sleep(step.cls === "a-badge" ? 150 : 420);
-          }
-          await sleep(2800);
-          i++;
-        }
-      })();
-    }
-  }
-
-  /* ── Catalog filter ───────────────────────────────────── */
-  const chips = document.querySelectorAll(".filter-chip");
-  chips.forEach((c) => c.addEventListener("click", () => {
-    chips.forEach((x) => { x.classList.remove("active"); x.setAttribute("aria-selected", "false"); });
-    c.classList.add("active"); c.setAttribute("aria-selected", "true");
-    const f = c.getAttribute("data-filter");
-    document.querySelectorAll(".catalog .case").forEach((card) => {
-      card.style.display = (f === "all" || card.getAttribute("data-cat") === f) ? "" : "none";
-    });
-  }));
-
-  /* ── Case modal ───────────────────────────────────────── */
-  const modal = document.getElementById("case-modal");
-  if (modal) {
-    const body = modal.querySelector("#modal-body");
-    const titleEl = modal.querySelector("#modal-title");
-    const eyebrowEl = modal.querySelector("#modal-eyebrow");
-    let lastFocus = null;
-    function openCase(card) {
-      const tpl = card.querySelector(".case__full");
-      if (!tpl) return;
-      lastFocus = document.activeElement;
-      const t = card.querySelector(".case__title");
-      const r = card.querySelector(".case__role");
-      titleEl.textContent = t ? t.textContent : "";
-      eyebrowEl.textContent = r ? r.textContent : "";
-      body.innerHTML = "";
-      body.appendChild(tpl.content.cloneNode(true));
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      const close = modal.querySelector(".modal__close");
-      if (close) close.focus();
-    }
-    function closeCase() {
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-    document.querySelectorAll(".case__more").forEach((b) =>
-      b.addEventListener("click", (e) => { e.preventDefault(); openCase(b.closest(".case")); }));
-    modal.addEventListener("click", (e) => { if (e.target.hasAttribute("data-close")) closeCase(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) closeCase(); });
-  }
-
-  /* ── Scroll-pinned Approach ────────────────────────────── */
-  const approachTrack = document.querySelector(".approach__track");
-  if (approachTrack) {
-    const pillars = approachTrack.querySelectorAll(".pillar");
-    const rail = approachTrack.querySelector(".approach__rail span");
-    const canPin = window.matchMedia("(min-width: 821px)").matches && !reduce;
-    if (canPin) {
-      let ticking = false;
-      function upd() {
-        ticking = false;
-        const total = Math.max(approachTrack.offsetHeight - window.innerHeight, 1);
-        const scrolled = Math.min(Math.max(-approachTrack.getBoundingClientRect().top, 0), total);
-        const p = scrolled / total;
-        if (rail) rail.style.setProperty("--p", p.toFixed(3));
-        const idx = Math.min(pillars.length - 1, Math.floor(p * pillars.length * 0.999));
-        pillars.forEach((pl, i) => pl.classList.toggle("active", i <= idx));
-      }
-      window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
-      window.addEventListener("resize", upd);
-      upd();
-    } else {
-      pillars.forEach((pl) => pl.classList.add("active"));
-    }
   }
 })();
