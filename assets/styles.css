@@ -622,10 +622,15 @@ a { color: inherit; }
 /* for when real files are dropped in: <img class="logo-img" src="assets/logos/x.svg" alt="X"> */
 .logo-img {
   height: clamp(26px, 4vw, 34px); width: auto;
-  opacity: 0.62; filter: grayscale(1);
+  opacity: 0.6; filter: grayscale(1) brightness(0) invert(1); /* dark: white silhouette */
   transition: opacity 0.18s ease, filter 0.18s ease;
 }
-.logo-img:hover { opacity: 1; filter: grayscale(0); }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .logo-img { filter: grayscale(1) brightness(0); opacity: 0.5; }
+}
+:root[data-theme="light"] .logo-img { filter: grayscale(1) brightness(0); opacity: 0.5; }
+:root[data-theme="dark"]  .logo-img { filter: grayscale(1) brightness(0) invert(1); opacity: 0.6; }
+.logo-img:hover { filter: none; opacity: 1; }
 
 
 /* ── Tech logo chips (Simple Icons, inlined) ────────────── */
