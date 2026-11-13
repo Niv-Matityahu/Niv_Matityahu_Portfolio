@@ -593,3 +593,36 @@ a { color: inherit; }
 .mini__desc { color: var(--text-muted); font-size: 0.9rem; flex: 1; }
 .mini__repo { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint); }
 .mini:hover .mini__repo { color: var(--accent); }
+
+/* ── Logo strip ─────────────────────────────────────────── */
+.section--logos {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border-bottom: 1px solid var(--line);
+  display: flex; flex-direction: column; gap: 2.2rem;
+}
+.logos__group { display: flex; flex-direction: column; gap: 1.1rem; }
+.logos__row {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: clamp(1.4rem, 4vw, 3rem);
+}
+.logo-item {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.05rem, 0.9rem + 0.8vw, 1.45rem);
+  letter-spacing: -0.01em; color: var(--text-faint);
+  white-space: nowrap; transition: color 0.18s ease;
+}
+.logo-item:hover { color: var(--text); }
+.logo-item--placeholder {
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-faint);
+  border: 1px dashed var(--line-strong); border-radius: 8px;
+  padding: 0.6rem 1rem;
+}
+/* for when real files are dropped in: <img class="logo-img" src="assets/logos/x.svg" alt="X"> */
+.logo-img {
+  height: clamp(26px, 4vw, 34px); width: auto;
+  opacity: 0.62; filter: grayscale(1);
+  transition: opacity 0.18s ease, filter 0.18s ease;
+}
+.logo-img:hover { opacity: 1; filter: grayscale(0); }
