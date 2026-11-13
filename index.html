@@ -134,208 +134,219 @@
         <h2 class="section__title" data-reveal>Production systems, a live agent, and a shipped product.</h2>
       </div>
 
-      <!-- CASE 01 — Moveo retail -->
-      <!-- TODO (client naming): replace "a national Israeli retailer" with the real name ONLY after
-           you've confirmed you're cleared by Moveo / the client to publish it. Same for CASE 02.
-           TODO (metrics): add real numbers if you're cleared — conversations/day, deflection or
-           resolution rate, CSAT, conversion lift, latency. They'd make these cases much stronger. -->
-      <article class="case" data-reveal>
-        <aside class="case__meta">
-          <span class="case__num">01</span>
-          <span class="case__tag case__tag--live">● Live in production</span>
-          <span class="case__role">Conversational commerce · Moveo AI</span>
-        </aside>
-        <div class="case__body">
-          <h3 class="case__title">A WhatsApp sales &amp; service agent for a national Israeli retailer</h3>
-          <p class="case__context">
-            The retailer wanted customers to browse, get recommendations, and actually buy — inside
-            WhatsApp, the channel they already live in. The hard constraint, and the whole reason this
-            is difficult: an assistant that quotes real prices and stock and <strong>never invents
-            either</strong>, running live for real customers.
-          </p>
+      <div class="gallery">
 
-          <div class="case__detail">
-            <div class="case__block">
-              <p class="case__label">What I built</p>
-              <ul class="case__list">
-                <li><strong>Hybrid retrieval for product discovery</strong> — taxonomy expansion and SQL pre-filtering, then weighted fusion of BM25 + embeddings, then re-ranking, so the model is handed the <em>right</em> products, not just similar ones.</li>
-                <li><strong>An orchestration layer</strong> with tool-calling and reliable state across multi-turn conversations — it remembers context without losing the thread.</li>
-                <li><strong>Multi-stage output guardrails</strong> that ground every fact &amp; price and strip hallucinated product names.</li>
-                <li><strong>Live data integration</strong> with product, inventory &amp; pricing feeds, with automated syncs keeping the catalog current.</li>
-              </ul>
+        <!-- CASE 01 — Moveo retail -->
+        <!-- TODO (client naming): replace "a national Israeli retailer" with the real name ONLY after
+             you've confirmed you're cleared by Moveo / the client to publish it. Same for CASE 02.
+             TODO (metrics): add real numbers if cleared — conversations/day, deflection or resolution
+             rate, CSAT, conversion lift, latency. -->
+        <article class="case" data-reveal>
+          <div class="cover case__cover">
+            <svg viewBox="0 0 400 175" role="img" aria-label="Chat bubble with a grounded price tag and a product grid">
+              <rect class="cv-line" x="28" y="30" width="186" height="98" rx="20" />
+              <path class="cv-line" d="M66 128 L58 150 L92 128 Z" />
+              <rect class="cv-dim" x="50" y="54" width="130" height="10" rx="5" />
+              <rect class="cv-dim" x="50" y="74" width="96" height="10" rx="5" />
+              <rect class="cv-acc" x="50" y="96" width="92" height="22" rx="11" />
+              <path class="cv-acc" d="M64 107 l6 6 l12 -13" />
+              <rect class="cv-line" x="262" y="40" width="44" height="44" rx="7" />
+              <rect class="cv-line" x="318" y="40" width="44" height="44" rx="7" />
+              <rect class="cv-dim"  x="262" y="96" width="44" height="44" rx="7" />
+              <rect class="cv-line" x="318" y="96" width="44" height="44" rx="7" />
+            </svg>
+          </div>
+          <div class="case__body">
+            <div class="case__meta-row">
+              <span class="case__num">01</span>
+              <span class="case__tag case__tag--live">● Live in production</span>
+              <span class="case__role">Moveo AI</span>
             </div>
-            <div class="case__block">
-              <p class="case__label">Outcome</p>
-              <ul class="case__list">
-                <li>Shipped and <strong>live to real customers</strong> over WhatsApp.</li>
-                <li>Prices and stock stay <strong>grounded — no hallucinations.</strong></li>
-                <li>Deployed on serverless AWS with push-to-main CI/CD.</li>
-              </ul>
+            <h3 class="case__title">WhatsApp sales &amp; service agent for a national Israeli retailer</h3>
+            <p class="case__context">
+              Customers browse, get recommendations, and buy inside WhatsApp — with an assistant that
+              quotes real prices and stock and <strong>never invents either</strong>, live for real users.
+            </p>
+            <p class="case__label">Highlights</p>
+            <ul class="case__list">
+              <li><strong>Hybrid retrieval</strong> — taxonomy expansion + SQL pre-filter, BM25 + embeddings fusion, then re-ranking.</li>
+              <li><strong>Guardrails</strong> that ground every price and strip hallucinated product names.</li>
+              <li><strong>Live catalog sync</strong> on serverless AWS with push-to-main CI/CD.</li>
+            </ul>
+            <ul class="tags tags--case">
+              <li>Python</li><li>AWS Lambda</li><li>DynamoDB</li><li>SQS FIFO</li><li>Hybrid RAG</li><li>Tool-calling</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- CASE 02 — Moveo airline -->
+        <article class="case" data-reveal>
+          <div class="cover case__cover">
+            <svg viewBox="0 0 400 175" role="img" aria-label="A flight path arc between two points with a plane and a service chat bubble">
+              <path class="cv-acc cv-dash" d="M70 130 Q200 20 330 70" />
+              <circle class="cv-mut" cx="70" cy="130" r="7" />
+              <circle class="cv-mut" cx="330" cy="70" r="7" />
+              <path class="cv-accf" d="M196 44 L224 58 L202 60 L198 74 L192 60 L182 58 Z" />
+              <rect class="cv-line" x="40" y="96" width="92" height="52" rx="12" />
+              <path class="cv-line" d="M62 148 L56 166 L84 148 Z" />
+              <rect class="cv-dim" x="54" y="112" width="64" height="8" rx="4" />
+              <rect class="cv-dim" x="54" y="128" width="44" height="8" rx="4" />
+            </svg>
+          </div>
+          <div class="case__body">
+            <div class="case__meta-row">
+              <span class="case__num">02</span>
+              <span class="case__tag case__tag--live">● Live in production</span>
+              <span class="case__role">Moveo AI</span>
+            </div>
+            <h3 class="case__title">Customer-service bot for a national airline</h3>
+            <p class="case__context">
+              High-volume, high-stakes support where a confidently wrong answer has real consequences.
+              I contributed to the retrieval, orchestration, and guardrail layers that keep answers
+              grounded and on-policy at scale.
+            </p>
+            <ul class="tags tags--case">
+              <li>Python</li><li>RAG</li><li>LLM orchestration</li><li>Guardrails</li><li>Serverless AWS</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- CASE 03 — Airport Investment Agent -->
+        <article class="case" data-reveal>
+          <div class="cover case__cover">
+            <svg viewBox="0 0 400 175" role="img" aria-label="A map of airport nodes with one highlighted, beside a ranked bar chart">
+              <path class="cv-thin" d="M46 60 L92 108 M92 108 L140 72 M140 72 L120 126 M46 60 L120 126" />
+              <circle class="cv-mut" cx="46" cy="60" r="5" />
+              <circle class="cv-mut" cx="92" cy="108" r="5" />
+              <circle class="cv-mut" cx="120" cy="126" r="5" />
+              <circle class="cv-acc" cx="140" cy="72" r="11" />
+              <circle class="cv-accf" cx="140" cy="72" r="4" />
+              <rect class="cv-accf" x="212" y="46" width="150" height="16" rx="8" />
+              <rect class="cv-dim"  x="212" y="80" width="112" height="16" rx="8" />
+              <rect class="cv-dim"  x="212" y="114" width="78" height="16" rx="8" />
+            </svg>
+          </div>
+          <div class="case__body">
+            <div class="case__meta-row">
+              <span class="case__num">03</span>
+              <span class="case__tag case__tag--demo">▶ Live demo · open source</span>
+              <span class="case__role">Solo build</span>
+            </div>
+            <h3 class="case__title">An AI analyst that finds the US airports worth expanding</h3>
+            <p class="case__context">
+              A chat/voice agent that ranks US airports for terminal-expansion investment. The thesis —
+              you only profit where capacity is <em>choked</em> — is baked into a
+              <strong>deterministic score</strong>, not the prompt.
+            </p>
+            <p class="case__label">Highlights</p>
+            <ul class="case__list">
+              <li>Agent loop (Gemini / Claude), 7 typed tools — it narrates; <strong>code computes every number.</strong></li>
+              <li>A <strong>grounding guard</strong> refuses any figure not pulled from a data tool.</li>
+              <li><strong>Live, deployed, 22 passing tests</strong>, built on public FAA · BTS · OurAirports data.</li>
+            </ul>
+            <ul class="tags tags--case">
+              <li>Python</li><li>Streamlit</li><li>Gemini</li><li>Claude</li><li>Function-calling</li><li>Voice</li>
+            </ul>
+            <div class="case__links">
+              <a class="btn btn--primary btn--sm" href="https://airport-investment-intelligence-agent.streamlit.app/" target="_blank" rel="noopener">Open live app ↗</a>
+              <a class="btn btn--ghost btn--sm" href="https://github.com/Niv-Matityahu/airport-investment-intelligence-agent" target="_blank" rel="noopener">Source &amp; docs ↗</a>
             </div>
           </div>
+        </article>
 
-          <ul class="tags tags--case">
-            <li>Python</li><li>AWS Lambda</li><li>DynamoDB</li><li>S3</li><li>SQS FIFO</li><li>Hybrid RAG</li><li>LLM tool-calling</li><li>CI/CD</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- CASE 02 — Moveo airline (compact) -->
-      <article class="case" data-reveal>
-        <aside class="case__meta">
-          <span class="case__num">02</span>
-          <span class="case__tag case__tag--live">● Live in production</span>
-          <span class="case__role">Customer service · Moveo AI</span>
-        </aside>
-        <div class="case__body">
-          <h3 class="case__title">A customer-service bot for a national airline</h3>
-          <p class="case__context">
-            High-volume, high-stakes support where a confidently wrong answer has real consequences for
-            travelers. I contributed to the retrieval, orchestration, and guardrail layers that keep
-            answers grounded and on-policy at scale, deployed and monitored on serverless AWS.
-          </p>
-          <ul class="tags tags--case">
-            <li>Python</li><li>RAG</li><li>LLM orchestration</li><li>Guardrails</li><li>Serverless AWS</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- CASE 03 — Airport Investment Agent -->
-      <article class="case" data-reveal>
-        <aside class="case__meta">
-          <span class="case__num">03</span>
-          <span class="case__tag case__tag--demo">▶ Live demo · open source</span>
-          <span class="case__role">AI agent · solo build</span>
-        </aside>
-        <div class="case__body">
-          <h3 class="case__title">An AI analyst that finds the US airports worth expanding</h3>
-          <p class="case__context">
-            A conversational agent that ranks US airports for terminal-expansion investment — by chat
-            or voice. The insight most takes miss: a fund only profits where capacity is
-            <em>choked</em>, so size and growth alone shouldn't win. I encoded that thesis into a
-            <strong>deterministic Expansion Opportunity Score</strong>, not the prompt.
-          </p>
-
-          <div class="case__detail">
-            <div class="case__block">
-              <p class="case__label">How it works</p>
-              <ul class="case__list">
-                <li><strong>Agent loop</strong> (Gemini / Claude) with 7 typed tools — it plans and narrates; <strong>code computes every number.</strong></li>
-                <li><strong>Choke-gated score:</strong> <span class="inline-code">EOS = (Choke·45 + Demand·30 + Scale·25) × choke-gate</span>, as outlier-robust national percentiles.</li>
-                <li><strong>A grounding guard</strong> that refuses any figure the model didn't pull from a data tool — so it <strong>can't invent a number.</strong></li>
-                <li>Built on public FAA · BTS · OurAirports data, with per-airport confidence flags.</li>
-              </ul>
+        <!-- CASE 04 — FinWise -->
+        <!-- TODO: FinWise repo is PRIVATE — no public code link. Make it public (then add a link) or
+             add screenshots / a demo video. -->
+        <article class="case" data-reveal>
+          <div class="cover case__cover">
+            <svg viewBox="0 0 400 175" role="img" aria-label="A rising financial trend line over bars with a coin">
+              <path class="cv-thin" d="M48 28 L48 142 L372 142" />
+              <rect class="cv-dim" x="78"  y="104" width="26" height="38" rx="3" />
+              <rect class="cv-dim" x="128" y="88"  width="26" height="54" rx="3" />
+              <rect class="cv-dim" x="178" y="96"  width="26" height="46" rx="3" />
+              <rect class="cv-dim" x="228" y="70"  width="26" height="72" rx="3" />
+              <rect class="cv-dim" x="278" y="54"  width="26" height="88" rx="3" />
+              <polyline class="cv-acc" points="62,118 112,108 162,114 212,84 262,90 322,48" />
+              <circle class="cv-accf" cx="322" cy="48" r="6" />
+              <circle class="cv-acc" cx="352" cy="44" r="15" />
+              <path class="cv-acc" d="M352 36 L352 52 M346 44 L358 44" />
+            </svg>
+          </div>
+          <div class="case__body">
+            <div class="case__meta-row">
+              <span class="case__num">04</span>
+              <span class="case__tag">◆ Product · full-stack</span>
+              <span class="case__role">Solo build</span>
             </div>
-            <div class="case__block">
-              <p class="case__label">Proof</p>
-              <ul class="case__list">
-                <li><strong>Live, deployed, and usable</strong> right now on Streamlit.</li>
-                <li><strong>22 passing tests</strong> over the scoring core and tools.</li>
-                <li>Full design doc covering methodology, tradeoffs, and where AI is (and isn't) used.</li>
-              </ul>
+            <h3 class="case__title">FinWise — a personal-finance app with a grounded AI advisor</h3>
+            <p class="case__context">
+              A full-stack finance assistant with a Hebrew, right-to-left UI: dashboard, transactions,
+              budgets, forecasts — and a Claude advisor that answers from <em>your</em> numbers, not guesses.
+            </p>
+            <p class="case__label">Highlights</p>
+            <ul class="case__list">
+              <li>Clean <strong>Next.js 15 / React 19 / TypeScript</strong> layers — UI, one server route, framework-free logic.</li>
+              <li><strong>Grounded advisor:</strong> server summarizes your data for Claude; the API key never leaves the server.</li>
+              <li>CI + one-click Render deploy; swap mock data for a real bank API by editing one file.</li>
+            </ul>
+            <ul class="tags tags--case">
+              <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind v4</li><li>Claude</li><li>Streaming</li>
+            </ul>
+            <div class="case__links">
+              <span class="case__tag case__tag--private">Private repo — available on request</span>
             </div>
           </div>
+        </article>
 
-          <ul class="tags tags--case">
-            <li>Python 3.11</li><li>Streamlit</li><li>Gemini</li><li>Claude</li><li>Function-calling</li><li>pandas / parquet</li><li>Voice</li>
-          </ul>
-          <div class="case__links">
-            <a class="btn btn--primary btn--sm" href="https://airport-investment-intelligence-agent.streamlit.app/" target="_blank" rel="noopener">Open live app ↗</a>
-            <a class="btn btn--ghost btn--sm" href="https://github.com/Niv-Matityahu/airport-investment-intelligence-agent" target="_blank" rel="noopener">Source &amp; design docs ↗</a>
+        <!-- CASE 05 — SmartAssessor -->
+        <!-- TODO: confirm framing — is this the B.Sc. WizardMath + LoRA grader? README shows the serving
+             architecture; tell me if the fine-tuning belongs here and I'll weave it in. -->
+        <article class="case" data-reveal>
+          <div class="cover case__cover">
+            <svg viewBox="0 0 400 175" role="img" aria-label="A graded document flowing through a job queue to a GPU worker">
+              <rect class="cv-line" x="30" y="38" width="78" height="100" rx="8" />
+              <rect class="cv-dim" x="44" y="56" width="50" height="8" rx="4" />
+              <rect class="cv-dim" x="44" y="72" width="40" height="8" rx="4" />
+              <rect class="cv-dim" x="44" y="88" width="50" height="8" rx="4" />
+              <path class="cv-acc" d="M46 112 l8 8 l16 -18" />
+              <path class="cv-acc" d="M118 88 L152 88 M144 81 L152 88 L144 95" />
+              <rect class="cv-acc"  x="166" y="52" width="78" height="22" rx="4" />
+              <rect class="cv-line" x="166" y="80" width="78" height="22" rx="4" />
+              <rect class="cv-line" x="166" y="108" width="78" height="22" rx="4" />
+              <path class="cv-acc" d="M254 88 L288 88 M280 81 L288 88 L280 95" />
+              <rect class="cv-line" x="300" y="56" width="66" height="64" rx="7" />
+              <rect class="cv-dim" x="316" y="72" width="34" height="32" rx="4" />
+              <path class="cv-line" d="M300 72 h-10 M300 104 h-10 M366 72 h10 M366 104 h10 M318 56 v-10 M348 56 v-10" />
+            </svg>
           </div>
-        </div>
-      </article>
-
-      <!-- CASE 04 — FinWise -->
-      <!-- TODO: FinWise repo is PRIVATE — no public code link added. Make it public (then add a
-           link) or add a demo video / screenshots if you want people to see it. -->
-      <article class="case" data-reveal>
-        <aside class="case__meta">
-          <span class="case__num">04</span>
-          <span class="case__tag">◆ Product · full-stack</span>
-          <span class="case__role">Personal finance + AI · solo build</span>
-        </aside>
-        <div class="case__body">
-          <h3 class="case__title">FinWise — a personal-finance app with a grounded AI advisor</h3>
-          <p class="case__context">
-            A full-stack finance assistant with a Hebrew, right-to-left interface: dashboard,
-            transactions, budgets, forecasts — and a Claude-powered advisor you can actually ask about
-            your own money. The same principle as the rest: the advisor is <strong>grounded</strong>,
-            not guessing.
-          </p>
-
-          <div class="case__detail">
-            <div class="case__block">
-              <p class="case__label">What I built</p>
-              <ul class="case__list">
-                <li>A single full-stack <strong>Next.js 15 / React 19 / TypeScript</strong> app in clean layers — UI, a single server endpoint, and framework-free business logic.</li>
-                <li>A <strong>grounded advisor:</strong> the server summarizes your real numbers and streams them to Claude as context, so it answers from your data — and the <strong>API key never leaves the server.</strong></li>
-                <li>Rules engines for categorization, budgets, alerts, and end-of-month forecasting — all pure, testable TypeScript.</li>
-                <li>CI (lint + build on every push) and one-click Render deploy; designed so swapping mock data for a real bank API touches one file.</li>
-              </ul>
+          <div class="case__body">
+            <div class="case__meta-row">
+              <span class="case__num">05</span>
+              <span class="case__tag">◆ Research · open source</span>
+              <span class="case__role">B.Sc. final project</span>
             </div>
-            <div class="case__block">
-              <p class="case__label">Why it matters</p>
-              <ul class="case__list">
-                <li>Shows the full stack: product, UX (incl. RTL), architecture, and a <strong>safely-integrated LLM.</strong></li>
-                <li>Built to graduate from mock data to a live Open-Banking feed without a rewrite.</li>
-              </ul>
-            </div>
-          </div>
-
-          <ul class="tags tags--case">
-            <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind v4</li><li>Claude (opus-4-8)</li><li>Streaming</li><li>CI/CD</li>
-          </ul>
-          <div class="case__links">
-            <span class="case__tag case__tag--private">Private repo — available on request</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- CASE 05 — SmartAssessor -->
-      <!-- TODO: confirm how to frame this — is it your B.Sc. final project (the WizardMath + LoRA
-           grader)? The README describes the serving architecture; tell me if the LoRA fine-tuning
-           belongs here and I'll weave it in. -->
-      <article class="case" data-reveal>
-        <aside class="case__meta">
-          <span class="case__num">05</span>
-          <span class="case__tag">◆ Research · open source</span>
-          <span class="case__role">B.Sc. final project · Azrieli College</span>
-        </aside>
-        <div class="case__body">
-          <h3 class="case__title">SmartAssessor — an AI tutor that grades exercises, step by step</h3>
-          <p class="case__context">
-            My degree's final project: a system that grades students' work and returns step-by-step
-            corrections, not just a mark. The interesting part is the <em>architecture</em> — running a
-            GPU language model without coupling the web app to a GPU.
-          </p>
-
-          <div class="case__detail">
-            <div class="case__block">
-              <p class="case__label">The design</p>
-              <ul class="case__list">
-                <li>A <strong>queue-decoupled pipeline:</strong> frontend → FastAPI backend → a Firestore job queue → a Colab GPU worker running the model → back to the user.</li>
-                <li>The backend stays light — it enqueues a job and waits; the heavy LLM inference runs on separate GPU hardware and writes results back.</li>
-                <li>Handles PDF upload → text extraction → chunking → grading → a structured evaluation.</li>
-              </ul>
-            </div>
-            <div class="case__block">
-              <p class="case__label">Context</p>
-              <ul class="case__list">
-                <li>Built within <strong>Level Up</strong>, a two-year honors program for outstanding students.</li>
-                <li>Part of a CS degree completed with a <strong>93 GPA.</strong></li>
-              </ul>
+            <h3 class="case__title">SmartAssessor — an AI tutor that grades work, step by step</h3>
+            <p class="case__context">
+              My degree's final project: it grades students' exercises and returns step-by-step
+              corrections. The interesting part is the architecture — running a GPU model without
+              coupling the web app to a GPU.
+            </p>
+            <p class="case__label">Highlights</p>
+            <ul class="case__list">
+              <li><strong>Queue-decoupled pipeline:</strong> FastAPI backend → Firestore job queue → Colab GPU worker → back.</li>
+              <li>PDF upload → text extraction → chunking → structured evaluation.</li>
+              <li>Built in <strong>Level Up</strong> honors; part of a CS degree finished at <strong>93 GPA.</strong></li>
+            </ul>
+            <ul class="tags tags--case">
+              <li>Python</li><li>FastAPI</li><li>Firestore</li><li>GPU worker</li><li>LLM grading</li>
+            </ul>
+            <div class="case__links">
+              <a class="btn btn--ghost btn--sm" href="https://github.com/Niv-Matityahu/SmartAssessor" target="_blank" rel="noopener">Source ↗</a>
             </div>
           </div>
+        </article>
 
-          <ul class="tags tags--case">
-            <li>Python</li><li>FastAPI</li><li>Firestore queue</li><li>GPU worker</li><li>LLM grading</li>
-          </ul>
-          <div class="case__links">
-            <a class="btn btn--ghost btn--sm" href="https://github.com/Niv-Matityahu/SmartAssessor" target="_blank" rel="noopener">Source ↗</a>
-          </div>
-        </div>
-      </article>
+      </div>
     </section>
 
     <!-- ───────────────────────── Foundations ───────────────────────── -->
@@ -350,36 +361,110 @@
       </div>
 
       <div class="foundations__grid" data-reveal>
+
         <a class="mini" href="https://github.com/Niv-Matityahu/Mini-Linux-Shell" target="_blank" rel="noopener">
-          <div class="mini__top"><span class="mini__title">Mini Linux Shell</span><span class="mini__lang">C</span></div>
-          <p class="mini__desc">A Unix-style shell: command execution via fork/execvp, background jobs, redirection, aliasing, logical operators, signal handling, and scripts.</p>
-          <span class="mini__repo">github ↗</span>
+          <div class="cover mini__cover">
+            <svg viewBox="0 0 320 180" role="img" aria-label="Terminal window with a command prompt">
+              <rect class="cv-line" x="30" y="34" width="260" height="112" rx="10" />
+              <line class="cv-thin" x1="30" y1="62" x2="290" y2="62" />
+              <circle class="cv-mut" cx="48" cy="48" r="4" /><circle class="cv-mut" cx="64" cy="48" r="4" /><circle class="cv-mut" cx="80" cy="48" r="4" />
+              <path class="cv-acc" d="M52 86 L70 97 L52 108" />
+              <rect class="cv-accf" x="80" y="88" width="13" height="19" rx="2" />
+              <rect class="cv-dim" x="52" y="120" width="190" height="8" rx="4" />
+            </svg>
+          </div>
+          <div class="mini__text">
+            <div class="mini__top"><span class="mini__title">Mini Linux Shell</span><span class="mini__lang">C</span></div>
+            <p class="mini__desc">A Unix-style shell: fork/execvp execution, background jobs, redirection, aliasing, logical operators, and signal handling.</p>
+            <span class="mini__repo">github ↗</span>
+          </div>
         </a>
+
         <a class="mini" href="https://github.com/Niv-Matityahu/WeatherForecast" target="_blank" rel="noopener">
-          <div class="mini__top"><span class="mini__title">Weather Forecast</span><span class="mini__lang">C++</span></div>
-          <p class="mini__desc">A desktop app that fetches live weather from the OpenWeatherMap API and renders it with ImGui over OpenGL / GLFW.</p>
-          <span class="mini__repo">github ↗</span>
+          <div class="cover mini__cover">
+            <svg viewBox="0 0 320 180" role="img" aria-label="A sun behind a cloud">
+              <circle class="cv-acc" cx="118" cy="78" r="24" />
+              <path class="cv-acc" d="M118 40 v-12 M118 128 v12 M80 78 h-12 M156 78 h12 M91 51 l-9 -9 M145 105 l9 9 M145 51 l9 -9 M91 105 l-9 9" />
+              <path class="cv-line" d="M170 128 q-18 0 -18 -17 q0 -17 18 -16 q4 -20 26 -17 q22 2 22 21 q16 -2 16 14 q0 15 -16 15 Z" />
+            </svg>
+          </div>
+          <div class="mini__text">
+            <div class="mini__top"><span class="mini__title">Weather Forecast</span><span class="mini__lang">C++</span></div>
+            <p class="mini__desc">A desktop app that fetches live weather from the OpenWeatherMap API and renders it with ImGui over OpenGL / GLFW.</p>
+            <span class="mini__repo">github ↗</span>
+          </div>
         </a>
+
         <a class="mini" href="https://github.com/Niv-Matityahu/GameOfLife" target="_blank" rel="noopener">
-          <div class="mini__top"><span class="mini__title">Game of Life</span><span class="mini__lang">Java</span></div>
-          <p class="mini__desc">An interactive implementation of Conway's cellular automaton, with controls to visualize and steer the simulation across generations.</p>
-          <span class="mini__repo">github ↗</span>
+          <div class="cover mini__cover">
+            <svg viewBox="0 0 320 180" role="img" aria-label="A Game of Life grid showing a glider">
+              <path class="cv-thin" d="M100 36 V156 M124 36 V156 M148 36 V156 M172 36 V156 M196 36 V156 M220 36 V156 M100 36 H220 M100 60 H220 M100 84 H220 M100 108 H220 M100 132 H220 M100 156 H220" />
+              <rect class="cv-accf" x="126" y="38" width="20" height="20" rx="2" />
+              <rect class="cv-accf" x="150" y="62" width="20" height="20" rx="2" />
+              <rect class="cv-accf" x="102" y="86" width="20" height="20" rx="2" />
+              <rect class="cv-accf" x="126" y="86" width="20" height="20" rx="2" />
+              <rect class="cv-accf" x="150" y="86" width="20" height="20" rx="2" />
+            </svg>
+          </div>
+          <div class="mini__text">
+            <div class="mini__top"><span class="mini__title">Game of Life</span><span class="mini__lang">Java</span></div>
+            <p class="mini__desc">An interactive implementation of Conway's cellular automaton, with controls to visualize and steer the simulation.</p>
+            <span class="mini__repo">github ↗</span>
+          </div>
         </a>
+
         <a class="mini" href="https://github.com/Niv-Matityahu/Logistic-Regression" target="_blank" rel="noopener">
-          <div class="mini__top"><span class="mini__title">Logistic Regression</span><span class="mini__lang">Python</span></div>
-          <p class="mini__desc">Multi-class classification from scratch — comparing One-vs-All, One-vs-One, and Softmax approaches.</p>
-          <span class="mini__repo">github ↗</span>
+          <div class="cover mini__cover">
+            <svg viewBox="0 0 320 180" role="img" aria-label="A scatter plot split by a decision boundary">
+              <path class="cv-thin" d="M56 32 V148 H276" />
+              <line class="cv-acc cv-dash" x1="74" y1="150" x2="258" y2="44" />
+              <circle class="cv-mut" cx="92" cy="128" r="5" /><circle class="cv-mut" cx="112" cy="116" r="5" /><circle class="cv-mut" cx="100" cy="140" r="5" /><circle class="cv-mut" cx="132" cy="124" r="5" />
+              <circle class="cv-accf" cx="206" cy="64" r="5" /><circle class="cv-accf" cx="226" cy="78" r="5" /><circle class="cv-accf" cx="198" cy="84" r="5" /><circle class="cv-accf" cx="236" cy="58" r="5" />
+            </svg>
+          </div>
+          <div class="mini__text">
+            <div class="mini__top"><span class="mini__title">Logistic Regression</span><span class="mini__lang">Python</span></div>
+            <p class="mini__desc">Multi-class classification from scratch — comparing One-vs-All, One-vs-One, and Softmax approaches.</p>
+            <span class="mini__repo">github ↗</span>
+          </div>
         </a>
+
         <a class="mini" href="https://github.com/Niv-Matityahu/K-Means-GMM" target="_blank" rel="noopener">
-          <div class="mini__top"><span class="mini__title">K-Means &amp; GMM</span><span class="mini__lang">Python</span></div>
-          <p class="mini__desc">Unsupervised learning: K-Means and Gaussian Mixture Models implemented and compared on clustering tasks.</p>
-          <span class="mini__repo">github ↗</span>
+          <div class="cover mini__cover">
+            <svg viewBox="0 0 320 180" role="img" aria-label="Three point clusters with centroids">
+              <ellipse class="cv-thin" cx="92" cy="74" rx="34" ry="28" />
+              <ellipse class="cv-thin" cx="214" cy="68" rx="32" ry="26" />
+              <ellipse class="cv-thin" cx="152" cy="134" rx="32" ry="24" />
+              <circle class="cv-mut" cx="80" cy="66" r="4" /><circle class="cv-mut" cx="98" cy="78" r="4" /><circle class="cv-mut" cx="90" cy="86" r="4" /><circle class="cv-mut" cx="104" cy="62" r="4" />
+              <circle class="cv-mut" cx="206" cy="60" r="4" /><circle class="cv-mut" cx="222" cy="72" r="4" /><circle class="cv-mut" cx="214" cy="78" r="4" /><circle class="cv-mut" cx="200" cy="68" r="4" />
+              <circle class="cv-mut" cx="142" cy="128" r="4" /><circle class="cv-mut" cx="160" cy="138" r="4" /><circle class="cv-mut" cx="152" cy="144" r="4" />
+              <path class="cv-acc" d="M86 68 l12 12 M98 68 l-12 12" /><path class="cv-acc" d="M208 62 l12 12 M220 62 l-12 12" /><path class="cv-acc" d="M146 128 l12 12 M158 128 l-12 12" />
+            </svg>
+          </div>
+          <div class="mini__text">
+            <div class="mini__top"><span class="mini__title">K-Means &amp; GMM</span><span class="mini__lang">Python</span></div>
+            <p class="mini__desc">Unsupervised learning: K-Means and Gaussian Mixture Models implemented and compared on clustering tasks.</p>
+            <span class="mini__repo">github ↗</span>
+          </div>
         </a>
+
         <a class="mini" href="https://github.com/Niv-Matityahu/Loan_approval_prediction" target="_blank" rel="noopener">
-          <div class="mini__top"><span class="mini__title">Loan Approval Prediction</span><span class="mini__lang">Python</span></div>
-          <p class="mini__desc">An end-to-end classification project predicting loan approval — data prep, modeling, and evaluation.</p>
-          <span class="mini__repo">github ↗</span>
+          <div class="cover mini__cover">
+            <svg viewBox="0 0 320 180" role="img" aria-label="A loan application branching to approve or deny">
+              <rect class="cv-line" x="40" y="48" width="92" height="84" rx="8" />
+              <rect class="cv-dim" x="54" y="66" width="64" height="8" rx="4" /><rect class="cv-dim" x="54" y="84" width="48" height="8" rx="4" /><rect class="cv-dim" x="54" y="102" width="64" height="8" rx="4" />
+              <path class="cv-thin" d="M132 90 H168 M168 90 V58 H196 M168 90 V122 H196" />
+              <path class="cv-acc" d="M204 50 l8 8 l16 -16" />
+              <path class="cv-mut" d="M206 114 l16 16 M222 114 l-16 16" />
+            </svg>
+          </div>
+          <div class="mini__text">
+            <div class="mini__top"><span class="mini__title">Loan Approval Prediction</span><span class="mini__lang">Python</span></div>
+            <p class="mini__desc">An end-to-end classification project predicting loan approval — data prep, modeling, and evaluation.</p>
+            <span class="mini__repo">github ↗</span>
+          </div>
         </a>
+
       </div>
     </section>
 
