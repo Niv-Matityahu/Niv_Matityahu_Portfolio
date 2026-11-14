@@ -38,7 +38,8 @@
               data-link="https://www.ikea.com/il/en/" data-linklabel="Visit IKEA ↗" data-live="1"
               data-ctx="Customers browse, plan and buy inside WhatsApp — with an assistant that quotes real prices and stock, and never invents either."
               data-steps="Hybrid retrieval over the live catalog, plus photo→product and voice input||Orchestration with tool-calling and reliable multi-turn state||Output validators strip any price or SKU the model wasn’t handed by code"
-              data-out="Live to customers on WhatsApp Cloud API, bilingual He/En||Grounded facts only — no hallucinated prices||Serverless AWS (Lambda arm64, SQS FIFO)">
+              data-out="Live to customers on WhatsApp Cloud API, bilingual He/En||Grounded facts only — no hallucinated prices||Serverless AWS (Lambda arm64, SQS FIFO)"
+              data-video="assets/video/ikea.mp4">
             <button class="row__link" type="button">
               <span class="row__n">01</span><span class="row__name">IKEA</span>
               <span class="row__kind">Conversational commerce</span><span class="row__meta">’26</span>
@@ -59,7 +60,7 @@
           </li>
           <li class="row" data-i="03" data-title="Modi’in Ezrahi" data-kind="Payroll Verification Agent"
               data-desc="Uploads the payroll files the org already produces, runs cross-system checks, and grounds every finding in its exact source file + row — then drafts the outreach emails."
-              data-logo="assets/logos/modiin.png" data-tags="React · FastAPI · Gemini"
+              data-logo="assets/logos/modiin.png" data-logodark="1" data-tags="React · FastAPI · Gemini"
               data-link="https://modiin-ezrachi.co.il/" data-linklabel="Visit site ↗" data-live="1"
               data-ctx="Catch payroll errors the organization couldn’t see across disconnected systems."
               data-steps="A React/Vite + FastAPI app ingesting the real CSV/Excel files||Two engines: month-over-month anomalies + cross-system reconciliation||A Gemini agent scoped per check — cites file+row, declines out-of-scope"
@@ -71,7 +72,7 @@
           </li>
           <li class="row" data-i="04" data-title="Cybrella" data-kind="Security-Event Classifier"
               data-desc="Maps raw alerts from any tool — SentinelOne, Active Directory, QRadar — into one taxonomy via semantic matching, so a SOC treats every source with one language."
-              data-logo="assets/logos/cybrella.png" data-tags="Python · Embeddings · Docker"
+              data-logo="assets/logos/cybrella.png" data-logodark="1" data-tags="Python · Embeddings · Docker"
               data-link="https://cybrella.io/" data-linklabel="Visit Cybrella ↗" data-live="1"
               data-ctx="Security teams drown in differently-shaped alerts; the job is to normalize them into one taxonomy."
               data-steps="Embedding-based semantic match against ~300 known events, with confidence scores||Unmatched events queue for analyst review||One-call onboarding for a new tool via declarative field mappings"

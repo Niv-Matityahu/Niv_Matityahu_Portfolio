@@ -32,6 +32,7 @@
     if (logoWrap) {
       logoWrap.innerHTML = d.logo ? '<img src="' + d.logo + '" alt="">' : "";
       logoWrap.style.display = d.logo ? "" : "none";
+      logoWrap.classList.toggle("ink", d.logodark === "1");
     }
     if (open) {
       open.textContent = d.linklabel || "Open ↗";

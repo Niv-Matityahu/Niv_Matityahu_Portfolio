@@ -205,3 +205,5 @@ body::after {
 .preview__demo[hidden] { display: none; }
 .preview__demo:hover { border-color: var(--ink); }
 .row[data-video] .row__name::after { content: "▶"; font-size: 0.5em; color: var(--muted); margin-left: 0.55em; vertical-align: middle; }
+
+.preview__logo.ink img { filter: brightness(0); }
