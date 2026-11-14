@@ -31,6 +31,7 @@
   const card = byId("pv-card");
   const open = byId("pv-open");
   const logoWrap = byId("pv-logo");
+  let activeRow = null;
 
   /* ── hover preview ─────────────────────────────── */
   function apply(d) {
@@ -48,9 +49,12 @@
       if (d.link) { open.href = d.link; open.classList.remove("is-muted"); open.setAttribute("target", "_blank"); open.setAttribute("rel", "noopener"); }
       else { open.removeAttribute("href"); open.classList.add("is-muted"); }
     }
+    const demo = byId("pv-demo");
+    if (demo) demo.hidden = !d.video;
   }
   function show(row) {
     rows.forEach((r) => r.classList.toggle("active", r === row));
+    activeRow = row;
     const d = row.dataset;
     if (reduce || !card) { apply(d); return; }
     card.classList.add("fade");
@@ -60,7 +64,9 @@
     r.addEventListener("mouseenter", () => show(r));
     r.addEventListener("focusin", () => show(r));
   });
-  if (rows[0]) rows[0].classList.add("active");
+  if (rows[0]) { rows[0].classList.add("active"); activeRow = rows[0]; }
+  const demoBtn = byId("pv-demo");
+  if (demoBtn) demoBtn.addEventListener("click", () => { if (activeRow) openSheet(activeRow); });
 
   /* subtle parallax on the preview card */
   const preview = byId("preview");
@@ -91,6 +97,8 @@
     byId("sheet-i").textContent = d.i + " / 09";
     byId("sheet-title").innerHTML = d.title || "";
     byId("sheet-kind").textContent = d.kind || "";
+    const media = byId("sheet-media");
+    if (media) media.innerHTML = d.video ? '<video src="' + d.video + '" controls playsinline preload="metadata"></video>' : "";
     byId("sheet-ctx").textContent = d.ctx || d.desc || "";
     fillList("sheet-steps", d.steps);
     fillList("sheet-out", d.out);
@@ -109,6 +117,7 @@
     if (!sheet) return;
     sheet.classList.remove("open"); sheet.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    const media = byId("sheet-media"); if (media) media.innerHTML = "";
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   rows.forEach((r) => {

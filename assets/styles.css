@@ -225,3 +225,13 @@ body::after {
 .sheet__title { font-weight: 700; letter-spacing: -0.035em; }
 .sheet__kind { font-family: var(--text); font-style: normal; font-weight: 500; }
 .load__word { font-weight: 600; letter-spacing: -0.01em; }
+
+
+/* ── Video: demo player + index marker ──────────────────── */
+.sheet__media { margin-top: 1.5rem; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid var(--line-2); }
+.sheet__media:empty { display: none; }
+.sheet__media video { display: block; width: 100%; height: auto; max-height: 58vh; background: #000; }
+.preview__demo { display: flex; align-items: center; gap: 0.4rem; width: fit-content; margin-top: 1.4rem; background: none; border: 0; border-bottom: 1px solid var(--line-2); padding: 0 0 3px; font: inherit; font-size: 0.84rem; color: var(--ink); cursor: pointer; transition: border-color 0.2s ease; }
+.preview__demo[hidden] { display: none; }
+.preview__demo:hover { border-color: var(--ink); }
+.row[data-video] .row__name::after { content: "▶"; font-size: 0.5em; color: var(--muted); margin-left: 0.55em; vertical-align: middle; }
