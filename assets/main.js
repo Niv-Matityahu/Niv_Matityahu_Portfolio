@@ -35,7 +35,7 @@
 
   /* ── hover preview ─────────────────────────────── */
   function apply(d) {
-    byId("pv-count").textContent = d.i + " / 09";
+    byId("pv-count").textContent = d.i + " / 10";
     byId("pv-title").innerHTML = d.title || "";
     byId("pv-kind").textContent = d.kind || "";
     byId("pv-desc").innerHTML = d.desc || "";
@@ -94,7 +94,7 @@
     if (!sheet) return;
     const d = row.dataset;
     lastFocus = document.activeElement;
-    byId("sheet-i").textContent = d.i + " / 09";
+    byId("sheet-i").textContent = d.i + " / 10";
     byId("sheet-title").innerHTML = d.title || "";
     byId("sheet-kind").textContent = d.kind || "";
     const media = byId("sheet-media");

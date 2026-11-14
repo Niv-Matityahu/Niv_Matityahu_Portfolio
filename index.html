@@ -31,7 +31,7 @@
       </header>
 
       <nav class="index" aria-label="Selected work">
-        <p class="index__label">Selected work <span>— 9 projects · 2025–26</span></p>
+        <p class="index__label">Selected work <span>— 10 projects · 2025–26</span></p>
         <ol class="rows" id="rows">
           <li class="row" data-i="01" data-title="IKEA" data-kind="WhatsApp Shopping Assistant"
               data-desc="A bilingual WhatsApp agent — product discovery, live stock across 5 stores, photo &amp; voice input — every price grounded in the real catalog."
@@ -106,7 +106,19 @@
               <span class="row__kind">Public transit</span><span class="row__meta">’25</span>
             </button>
           </li>
-          <li class="row" data-i="07" data-title="Airport Intelligence" data-kind="Investment Analyst Agent"
+          <li class="row" data-i="07" data-title="Amit" data-kind="Terrorism-research assistant (RAG)"
+              data-desc="A multilingual research assistant (Hebrew, English, French, Arabic) that answers strictly from an indexed document archive spanning 2005–2024 — grounded in sources, never from outside knowledge."
+              data-logo="" data-tags="Python · ChromaDB · bge-m3 · Gemini · FastAPI"
+              data-link="" data-linklabel="Internal research tool"
+              data-ctx="Researchers need answers from a large, multilingual, sensitive archive — and must be certain nothing is invented or pulled from outside the documents."
+              data-steps="Hybrid retrieval (vector + keyword, Hebrew-normalized) over a Chroma store, reranked with a bge cross-encoder||Multilingual bge-m3 embeddings across four languages; a query-rewriter resolves follow-ups||Gemini answers only from XML-sandboxed context — strictly source-grounded, with citations"
+              data-out="Dual UI (Streamlit + React) with an in-browser PDF document viewer||Ingests txt/pdf/docx/pptx/html/xls with dedup + incremental indexing||Every answer cites its source documents; no outside knowledge">
+            <button class="row__link" type="button">
+              <span class="row__n">07</span><span class="row__name">Amit</span>
+              <span class="row__kind">Security research</span><span class="row__meta">’26</span>
+            </button>
+          </li>
+          <li class="row" data-i="08" data-title="Airport Intelligence" data-kind="Investment Analyst Agent"
               data-desc="Ranks US airports for terminal-expansion investment by chat or voice. A grounding guard means it can’t invent a number — the thesis lives in deterministic code, not the prompt."
               data-logo="" data-tags="Streamlit · Gemini · Claude"
               data-link="https://airport-investment-intelligence-agent.streamlit.app/" data-linklabel="Open live app ↗" data-live="1"
@@ -114,11 +126,11 @@
               data-steps="Agent loop (Gemini/Claude) with 7 typed tools; code computes every number||A grounding guard refuses any ungrounded figure||Choke-gated score as outlier-robust national percentiles"
               data-out="Live on Streamlit, with 22 passing tests||Built on public FAA · BTS · OurAirports data">
             <button class="row__link" type="button">
-              <span class="row__n">07</span><span class="row__name">Airport Intelligence</span>
+              <span class="row__n">08</span><span class="row__name">Airport Intelligence</span>
               <span class="row__kind">Independent · live</span><span class="row__meta">’26</span>
             </button>
           </li>
-          <li class="row" data-i="08" data-title="FinWise" data-kind="Finance App + AI Advisor"
+          <li class="row" data-i="09" data-title="FinWise" data-kind="Finance App + AI Advisor"
               data-desc="A full-stack personal-finance app with a Hebrew RTL UI and a grounded Claude advisor that answers from your real numbers — the API key never leaves the server."
               data-logo="" data-tags="Next.js · React · Claude"
               data-link="" data-linklabel="Private — on request"
@@ -126,11 +138,11 @@
               data-steps="Next.js 15 / React 19 / TypeScript in clean layers||Grounded advisor — the server summarizes your data for Claude, key stays server-side||Swap mock data for a real bank API by editing one file"
               data-out="A polished Hebrew RTL finance app with streamed AI answers">
             <button class="row__link" type="button">
-              <span class="row__n">08</span><span class="row__name">FinWise</span>
+              <span class="row__n">09</span><span class="row__name">FinWise</span>
               <span class="row__kind">Independent · product</span><span class="row__meta">’26</span>
             </button>
           </li>
-          <li class="row" data-i="09" data-title="SmartAssessor" data-kind="AI Grading Tutor"
+          <li class="row" data-i="10" data-title="SmartAssessor" data-kind="AI Grading Tutor"
               data-desc="Grades students’ exercises with step-by-step corrections. A GPU language model runs decoupled from the web app through a job queue."
               data-logo="" data-tags="FastAPI · Firestore · GPU"
               data-link="" data-linklabel="On request"
@@ -138,7 +150,7 @@
               data-steps="Queue-decoupled: FastAPI → Firestore job queue → Colab GPU worker||PDF → extraction → chunking → structured evaluation"
               data-out="A working grading agent, built in the Level Up honors program">
             <button class="row__link" type="button">
-              <span class="row__n">09</span><span class="row__name">SmartAssessor</span>
+              <span class="row__n">10</span><span class="row__name">SmartAssessor</span>
               <span class="row__kind">Independent · B.Sc.</span><span class="row__meta">’25</span>
             </button>
           </li>
@@ -163,7 +175,7 @@
 
     <!-- RIGHT: preview stage -->
     <aside class="preview" id="preview" aria-hidden="true">
-      <span class="preview__count" id="pv-count">01 / 09</span>
+      <span class="preview__count" id="pv-count">01 / 10</span>
       <div class="preview__frame">
         <div class="preview__card" id="pv-card">
           <div class="preview__logo" id="pv-logo"><img src="assets/logos/ikea.svg" alt="" /></div>
