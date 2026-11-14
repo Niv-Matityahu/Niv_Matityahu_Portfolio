@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="SmartAssessor">
-  <rect x="16" y="16" width="88" height="88" rx="22" fill="none" stroke="#0e0e0e" stroke-width="5"/>
-  <path d="M38 61 L54 78 L84 42" fill="none" stroke="#0e0e0e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 120" role="img" aria-label="SmartAssessor">
+  <path d="M28 94 L57 27 L86 94" fill="none" stroke="#0e0e0e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 70 H74" fill="none" stroke="#0e0e0e" stroke-width="5" stroke-linecap="round"/>
+  <path d="M98 52 H118 M108 42 V62" fill="none" stroke="#0e0e0e" stroke-width="5" stroke-linecap="round"/>
 </svg>
