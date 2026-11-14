@@ -9,17 +9,6 @@
   const root = document.documentElement;
   const byId = (id) => document.getElementById(id);
 
-  /* theme */
-  const stored = (function () { try { return localStorage.getItem("theme"); } catch (e) { return null; } })();
-  if (stored === "light" || stored === "dark") root.setAttribute("data-theme", stored);
-  const current = () => root.getAttribute("data-theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  const toggle = byId("toggle");
-  if (toggle) toggle.addEventListener("click", function () {
-    const next = current() === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) {}
-  });
-
   /* preloader */
   const load = document.querySelector(".load");
   if (load) {
