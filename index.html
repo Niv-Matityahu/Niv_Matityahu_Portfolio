@@ -17,23 +17,7 @@
 <body>
   <div class="load" aria-hidden="true"><span class="load__word">Niv Matityahu</span></div>
 
-  <main class="wrap">
-    <header class="mast">
-      <a class="mast__name" href="#" aria-label="Niv Matityahu">Niv Matityahu</a>
-      <p class="mast__role"><span class="dot" aria-hidden="true"></span>AI Engineer — Available for work</p>
-      <h1 class="mast__statement">Conversational AI, engineered to be <em>trusted</em> in production.</h1>
-    </header>
-
-    <section class="about">
-      <p class="about__eyebrow">About</p>
-      <p class="about__text">I&rsquo;m an AI Engineer at Moveo AI with a product mindset — I take conversational AI from a client&rsquo;s first idea to a system running in production. Across retail, aviation, security and finance the throughline is the same: the model plans and explains, deterministic code decides every number, and a guard keeps it honest.</p>
-      <ul class="about__facts">
-        <li><span>Focus</span>LLM agents · RAG · reliability &amp; guardrails · serverless AWS</li>
-        <li><span>Background</span>B.Sc. Computer Science, GPA 93 (honors) · Product-management trained · ex-IDF team commander</li>
-        <li><span>Based</span>Tel Aviv · Open to freelance &amp; consulting</li>
-      </ul>
-    </section>
-
+  <main class="shell">
     <section class="work">
       <p class="work__label">Selected work <span>— 11 projects · 2025–26</span></p>
       <div class="grid">
@@ -58,29 +42,29 @@
           <span class="tile__meta"><span>Zero-hallucination service bot</span><span class="tile__year">’26</span></span>
         </span>
       </button>
-      <button class="tile" type="button" data-i="04" data-title="Modi’in Ezrahi" data-kind="Payroll verification agent" data-tags="React · FastAPI · Gemini" data-link="https://modiin-ezrachi.co.il/" data-linklabel="Visit site ↗" data-video="" data-logo="assets/logos/modiin.png" data-logodark="1" data-ctx="Catch payroll errors the organization could not see across disconnected systems." data-steps="A React / Vite + FastAPI app ingesting the real CSV / Excel files||Two engines: month-over-month anomalies + cross-system reconciliation||A Gemini agent scoped per check — cites file and row, declines out-of-scope" data-out="Every finding grounded to a file and row||One draft outreach email per branch (sending stays manual)||Delivered as a 4-epic MVP">
-        <span class="tile__cover"><svg viewBox="0 0 400 175" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cv-line" x="48" y="30" width="304" height="116" rx="8"/><path class="cv-thin" d="M48 62 H352 M48 90 H352 M48 118 H352 M150 30 V146 M248 30 V146"/><rect class="cv-dim" x="49" y="91" width="302" height="26"/><circle class="cv-acc" cx="326" cy="104" r="9"/><path class="cv-acc" d="M321 104 l4 4 l7 -8"/></svg></span>
+      <button class="tile" type="button" data-i="04" data-title="Modi’in Ezrahi" data-kind="Payroll verification agent" data-tags="React · FastAPI · Gemini" data-link="https://modiin-ezrachi.co.il/" data-linklabel="Visit site ↗" data-video="" data-logo="assets/logos/modiin-emblem.png" data-logodark="" data-ctx="Catch payroll errors the organization could not see across disconnected systems." data-steps="A React / Vite + FastAPI app ingesting the real CSV / Excel files||Two engines: month-over-month anomalies + cross-system reconciliation||A Gemini agent scoped per check — cites file and row, declines out-of-scope" data-out="Every finding grounded to a file and row||One draft outreach email per branch (sending stays manual)||Delivered as a 4-epic MVP">
+        <span class="tile__cover"><span class="tile__logo"><img src="assets/logos/modiin-emblem.png" alt=""></span></span>
         <span class="tile__cap">
           <span class="tile__name">Modi’in Ezrahi</span>
           <span class="tile__meta"><span>Payroll verification agent</span><span class="tile__year">’26</span></span>
         </span>
       </button>
       <button class="tile" type="button" data-i="05" data-title="Cybrella" data-kind="Security-event classifier" data-tags="Python · Embeddings · Docker" data-link="https://www.cybrella.io/" data-linklabel="Visit Cybrella ↗" data-video="" data-logo="assets/logos/cybrella.png" data-logodark="1" data-ctx="Security teams drown in differently-shaped alerts; the job is to normalize them into one taxonomy." data-steps="Embedding-based semantic match against ~300 known events, with confidence scores||Unmatched events queue for analyst review||One-call onboarding for a new tool via declarative field mappings" data-out="REST API + CLI, Dockerized, inside the CISOMate platform||Unifies event language and priority across every tool">
-        <span class="tile__cover"><svg viewBox="0 0 400 175" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="cv-line" d="M200 30 L254 48 V94 Q254 126 200 148 Q146 126 146 94 V48 Z"/><path class="cv-acc" d="M181 92 l13 13 l25 -29"/><circle class="cv-mut" cx="56" cy="56" r="5"/><circle class="cv-mut" cx="56" cy="90" r="5"/><circle class="cv-mut" cx="56" cy="124" r="5"/><path class="cv-thin" d="M62 56 L146 86 M62 90 L146 90 M62 124 L146 98"/></svg></span>
+        <span class="tile__cover"><span class="tile__logo ink"><img src="assets/logos/cybrella.png" alt=""></span></span>
         <span class="tile__cap">
           <span class="tile__name">Cybrella</span>
           <span class="tile__meta"><span>Security-event classifier</span><span class="tile__year">’26</span></span>
         </span>
       </button>
-      <button class="tile" type="button" data-i="06" data-title="Classiq" data-kind="Team-budget engine" data-tags="Python · HiBob · Mesh" data-link="https://www.classiq.io/" data-linklabel="Visit Classiq ↗" data-video="" data-logo="assets/logos/classiq.svg" data-logodark="" data-ctx="People join mid-year, switch teams, leave and rejoin — and nobody knew who still had budget." data-steps="Pro-rata budget by active days, applied per membership interval||Every edge case is the same formula||Computed straight from HiBob + Mesh" data-out="A deterministic, auditable budget engine||One source of truth, reconcilable to the day">
-        <span class="tile__cover"><svg viewBox="0 0 400 175" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="cv-thin" d="M58 34 V142 H344"/><rect class="cv-dim" x="80" y="92" width="214" height="20" rx="10"/><rect class="cv-accf" x="80" y="92" width="128" height="20" rx="10"/><circle class="cv-acc" cx="322" cy="58" r="17"/><path class="cv-acc" d="M322 47 V69 M311 58 H333"/><path class="cv-thin" d="M80 128 H294 M114 124 V132 M176 124 V132 M238 124 V132"/></svg></span>
+      <button class="tile" type="button" data-i="06" data-title="Classiq" data-kind="Team-budget engine" data-tags="Python · HiBob · Mesh" data-link="https://www.classiq.io/" data-linklabel="Visit Classiq ↗" data-video="" data-logo="assets/logos/classiq.svg" data-logodark="1" data-ctx="People join mid-year, switch teams, leave and rejoin — and nobody knew who still had budget." data-steps="Pro-rata budget by active days, applied per membership interval||Every edge case is the same formula||Computed straight from HiBob + Mesh" data-out="A deterministic, auditable budget engine||One source of truth, reconcilable to the day">
+        <span class="tile__cover"><span class="tile__logo ink"><img src="assets/logos/classiq.svg" alt=""></span></span>
         <span class="tile__cap">
           <span class="tile__name">Classiq</span>
           <span class="tile__meta"><span>Team-budget engine</span><span class="tile__year">’25</span></span>
         </span>
       </button>
       <button class="tile" type="button" data-i="07" data-title="SuperBus" data-kind="Bus-camera video retrieval" data-tags="FastAPI · SQLite" data-link="" data-linklabel="Internal tool" data-video="" data-logo="assets/logos/superbus.svg" data-logodark="" data-ctx="Pulling footage off a live bus fleet is flaky — buses drop offline mid-transfer." data-steps="Requests become tracked tickets in SQLite||The service drives the camera-server and auto-retries through gaps||A dashboard to submit, monitor and export" data-out="A resilient FastAPI pipeline that survives interrupted transfers">
-        <span class="tile__cover"><svg viewBox="0 0 400 175" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect class="cv-line" x="56" y="50" width="160" height="74" rx="12"/><path class="cv-thin" d="M92 50 V124 M128 50 V124 M164 50 V124 M200 50 V124"/><circle class="cv-line" cx="94" cy="132" r="10"/><circle class="cv-line" cx="186" cy="132" r="10"/><circle class="cv-accf" cx="210" cy="42" r="6"/><path class="cv-acc" d="M230 70 L250 70 M242 63 L250 70 L242 77"/><rect class="cv-dim" x="262" y="48" width="84" height="20" rx="4"/><rect class="cv-dim" x="262" y="76" width="84" height="20" rx="4"/><rect class="cv-mut" x="262" y="104" width="84" height="20" rx="4"/></svg></span>
+        <span class="tile__cover"><span class="tile__logo"><img src="assets/logos/superbus.svg" alt=""></span></span>
         <span class="tile__cap">
           <span class="tile__name">SuperBus</span>
           <span class="tile__meta"><span>Bus-camera video retrieval</span><span class="tile__year">’25</span></span>
@@ -100,8 +84,8 @@
           <span class="tile__meta"><span>Investment analyst agent</span><span class="tile__year">’26</span></span>
         </span>
       </button>
-      <button class="tile" type="button" data-i="10" data-title="FinWise" data-kind="Finance app + AI advisor" data-tags="Next.js · React · Claude" data-link="" data-linklabel="Private — on request" data-video="" data-logo="" data-logodark="" data-ctx="A product-grade build with a safely-integrated LLM advisor." data-steps="Next.js 15 / React 19 / TypeScript in clean layers||Grounded advisor — the server summarizes your data for Claude, key stays server-side||Swap mock data for a real bank API by editing one file" data-out="A polished Hebrew RTL finance app with streamed AI answers">
-        <span class="tile__cover"><svg viewBox="0 0 400 175" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="cv-thin" d="M48 26 L48 144 L374 144"/><rect class="cv-dim" x="78" y="104" width="26" height="40" rx="3"/><rect class="cv-dim" x="128" y="86" width="26" height="58" rx="3"/><rect class="cv-dim" x="178" y="96" width="26" height="48" rx="3"/><rect class="cv-dim" x="228" y="68" width="26" height="76" rx="3"/><rect class="cv-dim" x="278" y="52" width="26" height="92" rx="3"/><polyline class="cv-acc" points="62,120 112,108 162,116 212,82 262,90 324,46"/><circle class="cv-accf" cx="324" cy="46" r="6"/><circle class="cv-acc" cx="354" cy="42" r="15"/><path class="cv-acc" d="M354 33 L354 51 M343 42 H365"/></svg></span>
+      <button class="tile" type="button" data-i="10" data-title="FinWise" data-kind="Finance app + AI advisor" data-tags="Next.js · React · Claude" data-link="" data-linklabel="Private — on request" data-video="" data-logo="assets/logos/finwise.png" data-logodark="" data-ctx="A product-grade build with a safely-integrated LLM advisor." data-steps="Next.js 15 / React 19 / TypeScript in clean layers||Grounded advisor — the server summarizes your data for Claude, key stays server-side||Swap mock data for a real bank API by editing one file" data-out="A polished Hebrew RTL finance app with streamed AI answers">
+        <span class="tile__cover"><span class="tile__logo"><img src="assets/logos/finwise.png" alt=""></span></span>
         <span class="tile__cap">
           <span class="tile__name">FinWise</span>
           <span class="tile__meta"><span>Finance app + AI advisor</span><span class="tile__year">’26</span></span>
@@ -117,10 +101,24 @@
       </div>
     </section>
 
-    <footer class="foot">
-      <a href="mailto:nivmat47@gmail.com">nivmat47@gmail.com</a>
-      <a href="https://www.linkedin.com/in/niv-matityahu" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </footer>
+    <aside class="side">
+      <a class="side__name" href="#" aria-label="Niv Matityahu">Niv Matityahu</a>
+      <p class="side__role"><span class="dot" aria-hidden="true"></span>AI Engineer — Available for work</p>
+      <h1 class="side__statement">Conversational AI, engineered to be <em>trusted</em> in production.</h1>
+      <div class="side__about">
+        <p class="side__eyebrow">About</p>
+        <p class="side__text">I&rsquo;m an AI Engineer at Moveo AI with a product mindset — I take conversational AI from a client&rsquo;s first idea to a system running in production. Across retail, aviation, security and finance the throughline is the same: the model plans and explains, deterministic code decides every number, and a guard keeps it honest.</p>
+        <ul class="side__facts">
+          <li><span>Focus</span>LLM agents · RAG · reliability &amp; guardrails · serverless AWS</li>
+          <li><span>Background</span>B.Sc. Computer Science, GPA 93 (honors) · Product-management trained · ex-IDF team commander</li>
+          <li><span>Based</span>Tel Aviv · Open to freelance &amp; consulting</li>
+        </ul>
+      </div>
+      <div class="side__contact">
+        <a href="mailto:nivmat47@gmail.com">nivmat47@gmail.com</a>
+        <a href="https://www.linkedin.com/in/niv-matityahu" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </aside>
   </main>
 
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="m-title">
