@@ -182,12 +182,6 @@ body::after {
 .preview { grid-template-rows: auto 1fr auto; }
 .preview__count { justify-self: end; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--faint); font-variant-numeric: tabular-nums; }
 .preview__frame { position: relative; }
-.preview__ghost {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -54%);
-  font-family: var(--display); font-weight: 600; font-size: clamp(14rem, 34vw, 30rem);
-  line-height: 1; color: var(--ink); opacity: 0.035; z-index: 0;
-  pointer-events: none; user-select: none; font-variant-numeric: tabular-nums;
-}
 
 /* ── Case sheet (right slide-in) ────────────────────────── */
 .sheet { position: fixed; inset: 0; z-index: 2500; display: none; }
@@ -231,4 +225,3 @@ body::after {
 .sheet__title { font-weight: 700; letter-spacing: -0.035em; }
 .sheet__kind { font-family: var(--text); font-style: normal; font-weight: 500; }
 .load__word { font-weight: 600; letter-spacing: -0.01em; }
-.preview__ghost { font-weight: 700; }

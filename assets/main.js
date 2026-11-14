@@ -35,7 +35,6 @@
   /* ── hover preview ─────────────────────────────── */
   function apply(d) {
     byId("pv-count").textContent = d.i + " / 09";
-    byId("pv-ghost").textContent = d.i;
     byId("pv-title").innerHTML = d.title || "";
     byId("pv-kind").textContent = d.kind || "";
     byId("pv-desc").innerHTML = d.desc || "";
