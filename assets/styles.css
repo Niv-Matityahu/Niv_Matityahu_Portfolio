@@ -128,3 +128,14 @@ html.pin .gallery__progress { position: absolute; left: 0; right: 0; bottom: cla
   .modal__panel, .modal__bg { animation: none; }
   * { transition: none !important; }
 }
+
+
+/* ── Rich modal: overview, flow diagram, sections, stack chips ── */
+.modal__overview { font-size: 1rem; line-height: 1.6; color: var(--ink); margin-bottom: 0.4rem; }
+.modal__sec { margin-top: 1.7rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.modal__sec .modal__h { margin-bottom: 0.9rem; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.3rem; margin-bottom: 1.1rem; }
+.flow__node { font-size: 0.78rem; line-height: 1.2; color: var(--ink); background: var(--surface); border: 1px solid var(--line-2); border-radius: 8px; padding: 0.4rem 0.6rem; }
+.flow__arrow { color: var(--faint); font-size: 0.8rem; }
+.modal__stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { font-size: 0.72rem; letter-spacing: 0.01em; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 100px; padding: 0.28rem 0.6rem; }
