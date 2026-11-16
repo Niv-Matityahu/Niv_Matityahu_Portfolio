@@ -204,3 +204,10 @@ html.pin .gallery__progress { position: absolute; left: 0; right: 0; bottom: cla
 .arch__step::after { content: ""; position: absolute; left: 0; top: 0.32rem; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); box-sizing: border-box; }
 .arch__name { display: block; font-weight: 600; color: var(--ink); font-size: 0.96rem; }
 .arch__role { display: block; color: var(--muted); font-size: 0.87rem; line-height: 1.45; margin-top: 0.12rem; }
+
+/* ── About: availability note + résumé download button ── */
+.about__note { margin-top: 1.1rem; font-size: 0.9rem; line-height: 1.5; color: var(--muted); }
+.about__contact { align-items: center; }
+.about__resume { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.62rem 1.05rem; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); border-radius: 9px; font-size: 0.85rem; letter-spacing: 0; transition: opacity 0.2s ease; }
+.about__resume:hover { opacity: 0.85; color: var(--paper); }
+.about__resume::after { display: none; }
