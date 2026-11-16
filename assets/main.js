@@ -44,11 +44,16 @@
     lastFocus = document.activeElement;
     byId("m-eyebrow").textContent = ("0" + (idx + 1)).slice(-2) + " / 11  ·  " + (p.kind || "");
     byId("m-title").textContent = p.title || "";
-    var media = byId("m-media"), html = "";
-    if (p.video) { html = '<video src="' + p.video + '" controls playsinline preload="metadata"></video>'; }
-    else if (p.logo) { html = '<div class="modal__logo' + (p.logodark ? " ink" : "") + '"><img src="' + p.logo + '" alt=""></div>'; }
-    media.innerHTML = html;
+    var media = byId("m-media");
+    media.innerHTML = p.video ? '<video src="' + p.video + '" controls playsinline preload="metadata"></video>' : "";
     byId("m-overview").textContent = p.overview || "";
+    var st = byId("m-stats"); st.innerHTML = "";
+    (p.stats || []).forEach(function (s) {
+      var d = document.createElement("div"); d.className = "stat";
+      var v = document.createElement("span"); v.className = "stat__v"; v.textContent = s[0];
+      var l = document.createElement("span"); l.className = "stat__l"; l.textContent = s[1];
+      d.appendChild(v); d.appendChild(l); st.appendChild(d);
+    });
     var flow = byId("m-flow"); flow.innerHTML = "";
     (p.flow || []).forEach(function (n, i) {
       if (i) { var a = document.createElement("span"); a.className = "flow__arrow"; a.setAttribute("aria-hidden", "true"); a.textContent = "→"; flow.appendChild(a); }

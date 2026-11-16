@@ -129,9 +129,15 @@ html.pin .gallery__progress { position: absolute; left: 0; right: 0; bottom: cla
   * { transition: none !important; }
 }
 
+/* ===GEN-MODAL-EXTRAS=== */
 
-/* ── Rich modal: overview, flow diagram, sections, stack chips ── */
-.modal__overview { font-size: 1rem; line-height: 1.6; color: var(--ink); margin-bottom: 0.4rem; }
+/* ── Rich modal: overview, stat tiles, flow diagram, sections, stack chips ── */
+.modal__overview { font-size: 1.04rem; line-height: 1.62; color: var(--ink); margin-bottom: 0.4rem; }
+.modal__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 0.6rem; margin: 1.3rem 0 0.2rem; }
+.modal__stats:empty { display: none; }
+.stat { border: 1px solid var(--line); border-radius: 12px; padding: 0.8rem 0.85rem; background: var(--surface); }
+.stat__v { display: block; font-family: var(--display); font-weight: 700; font-size: 1.35rem; letter-spacing: -0.02em; line-height: 1.04; color: var(--ink); }
+.stat__l { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.32; }
 .modal__sec { margin-top: 1.7rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .modal__sec .modal__h { margin-bottom: 0.9rem; }
 .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.3rem; margin-bottom: 1.1rem; }
