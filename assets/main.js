@@ -47,7 +47,7 @@
     byId("m-tag").textContent = p.tagline || "";
     var media = byId("m-media");
     media.innerHTML = p.video ? '<video src="' + p.video + '" controls playsinline preload="metadata"></video>' : "";
-    byId("m-overview").textContent = p.overview || "";
+    byId("m-summary").textContent = p.summary || p.overview || "";
     var st = byId("m-stats"); st.innerHTML = "";
     (p.stats || []).forEach(function (s) {
       var d = document.createElement("div"); d.className = "stat";
@@ -61,6 +61,12 @@
       if (pct !== null) { var b = document.createElement("span"); b.className = "stat__bar"; var f = document.createElement("i"); f.style.width = pct + "%"; b.appendChild(f); d.appendChild(b); }
       st.appendChild(d);
     });
+    var arch = byId("m-arch"); arch.innerHTML = "";
+    (p.arch || []).forEach(function (a) {
+      var li = document.createElement("li");
+      var b = document.createElement("b"); b.textContent = a[0];
+      li.appendChild(b); li.appendChild(document.createTextNode(" — " + a[1])); arch.appendChild(li);
+    });
     var flow = byId("m-flow"); flow.innerHTML = "";
     (p.flow || []).forEach(function (n, i) {
       if (i) { var a = document.createElement("span"); a.className = "flow__arrow"; a.setAttribute("aria-hidden", "true"); a.textContent = "→"; flow.appendChild(a); }
@@ -68,7 +74,7 @@
       var num = document.createElement("b"); num.className = "flow__n"; num.textContent = ("0" + (i + 1)).slice(-2);
       s.appendChild(num); s.appendChild(document.createTextNode(n)); flow.appendChild(s);
     });
-    list("m-how", p.how); list("m-does", p.does); list("m-out", p.outcome);
+    list("m-wins", (p.wins && p.wins.length) ? p.wins : p.outcome); list("m-how", p.how); list("m-does", p.does);
     var stack = byId("m-stack"); stack.innerHTML = "";
     (p.stack || []).forEach(function (s) { var c = document.createElement("span"); c.className = "chip"; c.textContent = s; stack.appendChild(c); });
     var o = byId("m-open");

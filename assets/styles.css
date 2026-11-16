@@ -134,6 +134,12 @@ html.pin .gallery__progress { position: absolute; left: 0; right: 0; bottom: cla
 /* ── Rich modal: product case study — tagline, impact band, stat cards, pipeline ── */
 .modal__tag { font-size: 1.1rem; line-height: 1.42; color: var(--ink); font-weight: 500; margin: 0.55rem 0 0; max-width: 44ch; letter-spacing: -0.01em; }
 .modal__overview { font-size: 0.97rem; line-height: 1.64; color: var(--muted); margin-top: 1.05rem; }
+.modal__lead .modal__h { margin-bottom: 0.7rem; }
+.modal__summary { font-size: 1.02rem; line-height: 1.66; color: var(--ink); }
+.modal__arch { list-style: none; margin: 0 0 1.3rem; padding: 0; display: grid; gap: 0.6rem; }
+.modal__arch li { position: relative; padding-left: 1rem; font-size: 0.92rem; line-height: 1.5; color: var(--muted); }
+.modal__arch li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); }
+.modal__arch b { color: var(--ink); font-weight: 600; }
 
 /* Impact band — the achievements, visually set apart */
 .modal__impact { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem 1.3rem 1.4rem; margin-top: 1.9rem; }
