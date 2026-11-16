@@ -44,6 +44,7 @@
     lastFocus = document.activeElement;
     byId("m-eyebrow").textContent = ("0" + (idx + 1)).slice(-2) + " / 11  ·  " + (p.kind || "");
     byId("m-title").textContent = p.title || "";
+    byId("m-tag").textContent = p.tagline || "";
     var media = byId("m-media");
     media.innerHTML = p.video ? '<video src="' + p.video + '" controls playsinline preload="metadata"></video>' : "";
     byId("m-overview").textContent = p.overview || "";
@@ -52,12 +53,20 @@
       var d = document.createElement("div"); d.className = "stat";
       var v = document.createElement("span"); v.className = "stat__v"; v.textContent = s[0];
       var l = document.createElement("span"); l.className = "stat__l"; l.textContent = s[1];
-      d.appendChild(v); d.appendChild(l); st.appendChild(d);
+      d.appendChild(v); d.appendChild(l);
+      var val = String(s[0]), pct = null, m = val.match(/(\d{1,3})\s*%/);
+      if (m) { pct = Math.min(+m[1], 100); }
+      else if (val.indexOf("⅓") >= 0) { pct = 33; }
+      else if (val.indexOf("⅔") >= 0) { pct = 67; }
+      if (pct !== null) { var b = document.createElement("span"); b.className = "stat__bar"; var f = document.createElement("i"); f.style.width = pct + "%"; b.appendChild(f); d.appendChild(b); }
+      st.appendChild(d);
     });
     var flow = byId("m-flow"); flow.innerHTML = "";
     (p.flow || []).forEach(function (n, i) {
       if (i) { var a = document.createElement("span"); a.className = "flow__arrow"; a.setAttribute("aria-hidden", "true"); a.textContent = "→"; flow.appendChild(a); }
-      var s = document.createElement("span"); s.className = "flow__node"; s.textContent = n; flow.appendChild(s);
+      var s = document.createElement("span"); s.className = "flow__node";
+      var num = document.createElement("b"); num.className = "flow__n"; num.textContent = ("0" + (i + 1)).slice(-2);
+      s.appendChild(num); s.appendChild(document.createTextNode(n)); flow.appendChild(s);
     });
     list("m-how", p.how); list("m-does", p.does); list("m-out", p.outcome);
     var stack = byId("m-stack"); stack.innerHTML = "";
