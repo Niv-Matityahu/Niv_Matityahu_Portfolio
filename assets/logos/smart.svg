@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 120" role="img" aria-label="SmartAssessor">
-  <path d="M28 94 L57 27 L86 94" fill="none" stroke="#0e0e0e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40 70 H74" fill="none" stroke="#0e0e0e" stroke-width="5" stroke-linecap="round"/>
-  <path d="M98 52 H118 M108 42 V62" fill="none" stroke="#0e0e0e" stroke-width="5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="SmartAssessor">
+  <rect x="8" y="8" width="104" height="104" rx="26" fill="#0e0e0e"/>
+  <path d="M28 88 L47 34 L66 88" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 71 H58" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M78 58 H98 M88 48 V68" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round"/>
 </svg>
