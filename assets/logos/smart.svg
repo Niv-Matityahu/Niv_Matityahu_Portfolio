@@ -1,6 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="SmartAssessor">
-  <rect x="8" y="8" width="104" height="104" rx="26" fill="#0e0e0e"/>
-  <path d="M28 88 L47 34 L66 88" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M36 71 H58" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round"/>
-  <path d="M78 58 H98 M88 48 V68" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SmartAssessor">
+  <defs>
+    <linearGradient id="smart-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a63ff"/>
+      <stop offset="1" stop-color="#4a23ad"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#smart-g)"/>
+  <g transform="translate(256 256) scale(14) translate(-12 -12)">
+    <path fill="#ffffff" d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+  </g>
 </svg>
