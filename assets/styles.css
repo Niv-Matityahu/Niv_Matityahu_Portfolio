@@ -169,3 +169,28 @@ html.pin .gallery__progress { position: absolute; left: 0; right: 0; bottom: cla
 /* tech chips */
 .modal__stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .chip { font-size: 0.72rem; letter-spacing: 0.01em; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 100px; padding: 0.3rem 0.65rem; }
+
+/* ── Structured layout: wider panel, numbered sections, glance strip, feature grid, CTA ── */
+.modal__panel { width: min(720px, 100%); counter-reset: msec; }
+.modal__head { margin-bottom: 1.5rem; }
+.modal__head .modal__title { margin: 0.5rem 0 0; }
+.modal__glance { margin-bottom: 0.2rem; }
+
+/* numbered sections — clear structure + flow */
+.modal__sec { counter-increment: msec; margin-top: 2rem; padding-top: 1.6rem; }
+.modal__sec .modal__h { display: flex; align-items: center; gap: 0.6rem; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); margin-bottom: 1rem; }
+.modal__sec .modal__h::before { content: counter(msec, decimal-leading-zero); font-family: var(--display); font-weight: 700; font-size: 0.74rem; letter-spacing: 0; color: var(--muted); background: var(--paper); border: 1px solid var(--line); border-radius: 7px; padding: 0.18rem 0.42rem; }
+
+/* two-column scannable feature grid (What it does) */
+.modal__list.modal__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1.6rem; }
+
+/* cards / pills / chips pop on the surface panel */
+.flow__node { background: var(--paper); }
+.chip { background: var(--paper); }
+
+/* primary call-to-action button */
+.modal__open { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 2.1rem; padding: 0.72rem 1.15rem; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); border-radius: 10px; font-size: 0.86rem; letter-spacing: 0; }
+.modal__open:hover { opacity: 0.85; }
+.modal__open.is-muted { background: transparent; color: var(--faint); border: 1px dashed var(--line-2); cursor: default; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
+
+@media (max-width: 560px) { .modal__list.modal__grid { grid-template-columns: 1fr; } }

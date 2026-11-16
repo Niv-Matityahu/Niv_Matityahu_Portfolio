@@ -118,33 +118,35 @@
     <div class="modal__bg" data-close></div>
     <article class="modal__panel">
       <button class="modal__x" data-close type="button" aria-label="Close">Close</button>
-      <p class="modal__eyebrow" id="m-eyebrow"></p>
-      <h2 class="modal__title" id="m-title"></h2>
-      <p class="modal__tag" id="m-tag"></p>
+      <header class="modal__head">
+        <p class="modal__eyebrow" id="m-eyebrow"></p>
+        <h2 class="modal__title" id="m-title"></h2>
+        <p class="modal__tag" id="m-tag"></p>
+      </header>
       <div class="modal__media" id="m-media"></div>
-      <section class="modal__sec modal__lead">
-        <p class="modal__h">Executive summary</p>
+      <div class="modal__glance"><div class="modal__stats" id="m-stats"></div></div>
+      <section class="modal__sec">
+        <p class="modal__h">Overview</p>
         <p class="modal__summary" id="m-summary"></p>
       </section>
-      <section class="modal__sec modal__impact">
+      <section class="modal__sec">
         <p class="modal__h">Business impact</p>
-        <div class="modal__stats" id="m-stats"></div>
         <ul class="modal__list modal__list--check" id="m-wins"></ul>
+      </section>
+      <section class="modal__sec">
+        <p class="modal__h">What it does</p>
+        <ul class="modal__list modal__grid" id="m-does"></ul>
+      </section>
+      <section class="modal__sec">
+        <p class="modal__h">How it works</p>
+        <div class="flow" id="m-flow"></div>
+        <ul class="modal__list" id="m-how"></ul>
       </section>
       <section class="modal__sec">
         <p class="modal__h">Architecture</p>
         <ul class="modal__arch" id="m-arch"></ul>
-        <div class="flow" id="m-flow"></div>
       </section>
-      <section class="modal__sec">
-        <p class="modal__h">How it works</p>
-        <ul class="modal__list" id="m-how"></ul>
-      </section>
-      <section class="modal__sec">
-        <p class="modal__h">What it does</p>
-        <ul class="modal__list" id="m-does"></ul>
-      </section>
-      <section class="modal__sec">
+      <section class="modal__sec modal__sec--tags">
         <p class="modal__h">Built with</p>
         <p class="modal__stack" id="m-stack"></p>
       </section>
