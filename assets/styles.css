@@ -194,3 +194,13 @@ html.pin .gallery__progress { position: absolute; left: 0; right: 0; bottom: cla
 .modal__open.is-muted { background: transparent; color: var(--faint); border: 1px dashed var(--line-2); cursor: default; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
 
 @media (max-width: 560px) { .modal__list.modal__grid { grid-template-columns: 1fr; } }
+
+/* ── Architecture: a clean, abstract flow visualization (vertical timeline) ── */
+.arch { list-style: none; margin: 0.2rem 0 0; padding: 0; }
+.arch__step { position: relative; padding: 0 0 1.15rem 1.9rem; }
+.arch__step:last-child { padding-bottom: 0; }
+.arch__step::before { content: ""; position: absolute; left: 5px; top: 0.55rem; bottom: -0.15rem; width: 2px; background: var(--line-2); }
+.arch__step:last-child::before { display: none; }
+.arch__step::after { content: ""; position: absolute; left: 0; top: 0.32rem; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); box-sizing: border-box; }
+.arch__name { display: block; font-weight: 600; color: var(--ink); font-size: 0.96rem; }
+.arch__role { display: block; color: var(--muted); font-size: 0.87rem; line-height: 1.45; margin-top: 0.12rem; }
